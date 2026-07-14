@@ -133,15 +133,17 @@ Gesture mapping:
 
 | Gesture | Action |
 |---|---|
-| 1 tap | Open Internet Explorer themed launcher |
+| 1 tap | Open Internet Explorer / Netscape-style browser launcher |
 | 2 taps | Open Mac OS 9 / SheepShaver |
-| 3 taps | Open Winamp/QMMP style player |
+| 3 taps | Open Winamp / QMMP |
 | 4 taps | Open RetroPie / EmulationStation |
-| Hold | Close active window |
+| Hold 2 seconds | Close active window |
+| Hold 6 seconds | Close all windows and show desktop |
+| Hold 10 seconds | Power off |
 
 The four-tap RetroPie gesture exists so the keyboard and mouse can stay packed when the only goal is playing games. Power on, plug in a controller, tap the Apple logo four times, and go.
 
-The hold gesture works around the Nintendo 64 controller problem. The controller does not have a spare clean hotkey button, so holding the Apple logo closes the running game or exits EmulationStation.
+The timed hold gestures provide keyboard-free window and system control. A two-second hold closes the active game or application, a six-second hold clears the desktop, and a ten-second hold shuts down the PiForma.
 
 ## Volume knob
 
