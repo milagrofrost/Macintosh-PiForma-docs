@@ -32,10 +32,11 @@ Macintosh PiForma now includes a small family of companion apps.
 
 | Project | Repo | What it does |
 |---|---|---|
+| PiForma Panel | https://github.com/milagrofrost/piforma-panel | Macintosh-style top panel and menu bar |
 | AtEase Simulator | https://github.com/milagrofrost/AtEase-simulator | At Ease-style launcher shell |
 | ControlStrip Simulator | https://github.com/milagrofrost/ControlStrip-Simulator | Mac OS-style utility strip / dock |
 | About This PiForma | https://github.com/milagrofrost/about-this-pi | About This Mac-style system info window |
-| Clippy | https://github.com/milagrofrost/clippy | retro desktop assistant |
+| Clippy PiForma fork | https://github.com/milagrofrost/clippy-rpi | retro desktop assistant |
 | Macintosh PiForma docs | https://github.com/milagrofrost/Macintosh-PiForma-docs | the build, BOM, wiring, lore, and maintenance notes |
 
 ## Why this works

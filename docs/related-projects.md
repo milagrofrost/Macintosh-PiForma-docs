@@ -9,10 +9,12 @@ This page keeps those pieces tied together so the project does not look like a r
 | Project | Repo | What it is | Role in PiForma |
 |---|---|---|---|
 | Macintosh PiForma docs | https://github.com/milagrofrost/Macintosh-PiForma-docs | documentation repo | build docs, BOM, wiring, maintenance, photos, STLs |
+| PiForma Panel | https://github.com/milagrofrost/piforma-panel | Tauri top panel | active Macintosh-style menu bar |
 | AtEase Simulator | https://github.com/milagrofrost/AtEase-simulator | Tauri launcher shell | full-screen At Ease-style app launcher |
 | ControlStrip Simulator | https://github.com/milagrofrost/ControlStrip-Simulator | Tauri dock/control strip | Mac OS-style utility strip and app focus helper |
 | About This PiForma | https://github.com/milagrofrost/about-this-pi | About This Mac-style app | shows PiForma system info and top-memory apps |
-| Clippy | https://github.com/milagrofrost/clippy | forked retro AI assistant | desktop personality layer |
+| Clippy PiForma fork | https://github.com/milagrofrost/clippy-rpi | forked retro AI assistant | desktop personality layer |
+| Flight of the Toasters | https://github.com/milagrofrost/Flight-of-the-Toasters | local web app | Flying Toasters launcher backend |
 
 ## How they fit together
 
@@ -20,13 +22,14 @@ This page keeps those pieces tied together so the project does not look like a r
 flowchart TD
     PiForma[Macintosh PiForma hardware] --> OS[Raspberry Pi OS / Debian desktop]
     OS --> Theme[Mac OS 9-ish theme, icons, fonts]
+    OS --> Panel[PiForma Panel]
     OS --> AtEase[AtEase Simulator]
     OS --> ControlStrip[ControlStrip Simulator]
     OS --> About[About This PiForma]
     OS --> Clippy[Clippy]
     OS --> Retro[RetroPie and nostalgia launchers]
 
-    AtEase --> Launchers[Desktop launchers and .desktop files]
+    AtEase --> Launchers[AtEase launcher folders and .desktop files]
     ControlStrip --> WindowMgmt[X11 window detection and focus]
     About --> SystemInfo[Pi model, OS, memory, top apps]
     Clippy --> Assistant[local assistant / retro personality]
@@ -45,7 +48,8 @@ Role:
 - replaces a normal Linux desktop launcher with an At Ease-style shell
 - gives PiForma a simple front-end for launching the curated app set
 - runs as `atease.service`
-- uses `~/.config/atease/config.yaml`
+- uses `~/.local/share/atease/config.yaml`
+- reads launcher files from `~/.local/share/atease/apps/` and `~/.local/share/atease/apps-2/`
 - launches through `.desktop` files instead of arbitrary front-end commands
 
 Why it matters:
@@ -95,7 +99,7 @@ This is the app that says, yes, the joke is intentional.
 Repo:
 
 ```text
-https://github.com/milagrofrost/clippy
+https://github.com/milagrofrost/clippy-rpi
 ```
 
 Role:

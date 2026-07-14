@@ -2,6 +2,8 @@
 
 This page summarizes the live PiForma software audit generated on 2026-06-23 and revised on 2026-07-05 with the newer apps and theme work.
 
+> **Dated snapshot:** this page is historical. It was superseded by the July 14, 2026 Phase 1 and Phase 2 audits. Use `docs/software.md` for the current software architecture. Keep this file as a point-in-time audit record, not as the source of truth for active panel, launcher, or service state.
+
 The audit matters because it captures what is actually running on the machine, not just what the build was supposed to be.
 
 ## Machine identity
@@ -56,7 +58,7 @@ Power on
   -> multi-user.target starts networking and support services
   -> graphical.target starts LightDM
   -> user frost enters rpd-x LXDE/Openbox session
-  -> lxpanel-pi, pcmanfm-pi, xscreensaver start
+  -> pcmanfm-pi and session autostart entries run
   -> custom graphical services start
 ```
 
@@ -131,7 +133,7 @@ Active visual stack:
 | Cursor | `retrosmart-xcursor-black-color-shadow` |
 | Font | `ChicagoFLF Medium 7` |
 | Wallpaper | `~/atease-1.png` |
-| Panel | `lxpanel-pi`, top Mac-style menu bar |
+| Panel | Historical note: this audit revision listed `lxpanel-pi`, but the July 14, 2026 audit verified PiForma Panel as the active top panel |
 
 Additional PiForma theme work exists in:
 

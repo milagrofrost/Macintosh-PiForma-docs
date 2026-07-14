@@ -18,6 +18,24 @@ The software is not trying to be a perfect clone of classic Mac OS. It is Raspbe
 | Session | X11 |
 | Display mode | 800x480 |
 
+## Current graphical stack
+
+The current live desktop is an X11 `rpd-x` session launched by LightDM. Openbox manages windows, PCManFM owns the desktop background, and PiForma Panel is the active top panel.
+
+| Layer | Current implementation |
+|---|---|
+| Display manager | LightDM |
+| Session | `rpd-x` / LXDE on X11 |
+| Window manager | Openbox |
+| Desktop background | PCManFM |
+| Top panel | PiForma Panel |
+| Launcher shell | AtEase |
+| Dock / Control Strip | ControlStrip Simulator |
+| Assistant | Clippy |
+| Audio | PipeWire / WirePlumber |
+
+LXPanel-pi and tint2 configuration files may still exist on the machine, but they are not the active top panel in the July 2026 live audit.
+
 ## Boot flow
 
 Expected flow:
@@ -62,6 +80,11 @@ Known files and directories touched during the build:
 ~/.config/openbox/rpd-rc.xml
 ~/.config/pcmanfm/LXDE-pi/desktop-items-0.conf
 ~/.config/lxpanel-pi/panels/panel
+~/.local/share/piforma-panel/config.yaml
+~/.local/share/control-strip/config.yaml
+~/.local/share/atease/config.yaml
+~/.local/share/atease/apps/
+~/.local/share/atease/apps-2/
 ~/.config/SheepShaver/prefs
 ~/.sheepshaver_prefs
 ~/.asoundrc
@@ -73,11 +96,15 @@ Known files and directories touched during the build:
 
 ## Custom services
 
-| Service | Purpose |
-|---|---|
-| `apple-gesture-button.service` | Handles Apple logo capacitive gestures |
-| `volume-knob.service` | Handles EC11 volume knob |
-| `flyingtoasters.service` | Serves local Flying Toasters web build |
+| Service | Scope | Purpose |
+|---|---|---|
+| `apple-gesture-button.service` | system | Handles Apple logo capacitive gestures |
+| `volume-knob.service` | system | Handles EC11 volume knob |
+| `atease.service` | system | Starts the AtEase launcher as user `frost` |
+| `flyingtoasters.service` | system | Serves local Flying Toasters web build |
+| `piforma-panel.service` | user | Starts PiForma Panel |
+| `controlstrip-simulator.service` | user | Starts ControlStrip Simulator |
+| `n64-audio-loop.service` | user | Optional external-input audio helper |
 
 ## Apple logo gesture button
 
@@ -106,15 +133,17 @@ Gesture mapping:
 
 | Gesture | Action |
 |---|---|
-| 1 tap | Open Internet Explorer themed launcher |
+| 1 tap | Open Internet Explorer / Netscape-style browser launcher |
 | 2 taps | Open Mac OS 9 / SheepShaver |
-| 3 taps | Open Winamp/QMMP style player |
+| 3 taps | Open Winamp / QMMP |
 | 4 taps | Open RetroPie / EmulationStation |
-| Hold | Close active window |
+| Hold 2 seconds | Close active window |
+| Hold 6 seconds | Close all windows and show desktop |
+| Hold 10 seconds | Power off |
 
 The four-tap RetroPie gesture exists so the keyboard and mouse can stay packed when the only goal is playing games. Power on, plug in a controller, tap the Apple logo four times, and go.
 
-The hold gesture works around the Nintendo 64 controller problem. The controller does not have a spare clean hotkey button, so holding the Apple logo closes the running game or exits EmulationStation.
+The timed hold gestures provide keyboard-free window and system control. A two-second hold closes the active game or application, a six-second hold clears the desktop, and a ten-second hold shuts down the PiForma.
 
 ## Volume knob
 
@@ -159,19 +188,22 @@ Previous experiments included MAX98357A I2S amplifier boards and other audio ada
 
 ## Included apps and launchers
 
+Current visible launchers are managed by AtEase from `~/.local/share/atease/apps/` and `~/.local/share/atease/apps-2/`, not from `~/Desktop`.
+
 | App / Feature | Role | Status |
 |---|---|---|
 | RetroPie / EmulationStation | games | primary practical use |
 | Web browser | general use | primary practical use |
 | SheepShaver / Mac OS 9 | classic Mac nostalgia | included |
-| LinApple | Apple II emulation | included or planned |
-| DOSBox-X / Windows 98 | retro Windows | included or experimental |
+| LinApple | Apple II emulation | dormant or pending confirmation |
+| DOSBox-X / Windows 98 | retro Windows | experimental or pending confirmation |
 | WeatherStar / Weather Channel kiosk | ambient retro weather | included |
 | Flying Toasters | screensaver nostalgia | included |
 | AOL simulator | early internet nostalgia | included |
 | Netscape launcher | early internet nostalgia | included |
 | Encarta | encyclopedia nostalgia | included |
-| Kid Pix | classic creative software | included |
+| LimeWire | early internet nostalgia | included |
+| Kid Pix | classic creative software | historical or pending confirmation |
 | Winamp / QMMP style player | music nostalgia | included |
 
 Some are practical. Some are there because the computer would feel wrong without them.
@@ -214,7 +246,11 @@ Suggested systemd units:
 ```text
 systemd/apple-gesture-button.service
 systemd/volume-knob.service
+systemd/atease.service
 systemd/flyingtoasters.service
+systemd/user/piforma-panel.service
+systemd/user/controlstrip-simulator.service
+systemd/user/n64-audio-loop.service
 ```
 
 Suggested config snapshots:
@@ -222,6 +258,11 @@ Suggested config snapshots:
 ```text
 config/boot/firmware/config.txt
 config/openbox/rpd-rc.xml
+config/piforma-panel/config.yaml
+config/control-strip/config.yaml
+config/atease/config.yaml
+config/atease/apps/
+config/atease/apps-2/
 config/lxpanel-pi/panel
 config/pcmanfm/desktop-items-0.conf
 config/lxsession/autostart

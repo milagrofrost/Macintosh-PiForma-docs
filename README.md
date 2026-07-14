@@ -36,6 +36,21 @@ This is documented as a **finished project**.
 
 That does not mean there are no future improvements. It means this version is complete enough to put a bow on it and stop mentally treating it as a pile of loose tasks.
 
+## PiForma software projects
+
+Macintosh PiForma is one integrated build spread across this documentation repository and several companion application repositories. This repo explains the machine, recovery notes, hardware, wiring, and how the software pieces fit together. The app repositories own their own source, build, and release details.
+
+| Project | Repository | Role |
+|---|---|---|
+| PiForma Panel | https://github.com/milagrofrost/piforma-panel | active Macintosh-style top panel and menu bar |
+| AtEase Simulator | https://github.com/milagrofrost/AtEase-simulator | At Ease-style launcher surface |
+| ControlStrip Simulator | https://github.com/milagrofrost/ControlStrip-Simulator | bottom-left Control Strip and app focus helper |
+| About This PiForma | https://github.com/milagrofrost/about-this-pi | About This Mac-style PiForma system window |
+| Clippy PiForma fork | https://github.com/milagrofrost/clippy-rpi | retro desktop assistant |
+| Flight of the Toasters | https://github.com/milagrofrost/Flight-of-the-Toasters | local Flying Toasters web app used by the launcher |
+
+For the current system layout, see [Software](docs/software.md). For how the custom apps work together, see [Software Ecosystem](docs/software-ecosystem.md). For the canonical repo map, see [Related Projects](docs/related-projects.md).
+
 ## Photo placeholders
 
 Add final project photos here:
@@ -118,6 +133,8 @@ flowchart TD
 
 - [Hardware](docs/hardware.md)
 - [Software](docs/software.md)
+- [Software Ecosystem](docs/software-ecosystem.md)
+- [Related Projects](docs/related-projects.md)
 - [Wiring](docs/wiring.md)
 - [Bill of Materials](docs/bom.md)
 - [Printed Parts](docs/printed-parts.md)

@@ -6,7 +6,7 @@ The hardware gives it a body. The software gives it a personality.
 
 ## The desktop illusion
 
-The live system is a Raspberry Pi 4 Model B running a Raspberry Pi OS / Debian 13 Trixie-style desktop stack on X11. The shell is built around LightDM, LXDE, Openbox, LXPanel-pi, PCManFM, PipeWire, and a pile of intentionally nostalgic launchers.
+The live system is a Raspberry Pi 4 Model B running a Raspberry Pi OS / Debian 13 Trixie-style desktop stack on X11. The shell is built around LightDM, LXDE, Openbox, PCManFM, PiForma Panel, AtEase, ControlStrip Simulator, PipeWire, and a pile of intentionally nostalgic launchers.
 
 The point is not to fake macOS perfectly. The point is to make a Raspberry Pi behave like a computer that fell out of a late-90s Apple fever dream.
 
@@ -17,8 +17,10 @@ Core pieces:
 | LightDM | graphical login |
 | rpd-x / LXDE | session environment |
 | Openbox | window manager |
-| LXPanel-pi | Mac-style top menu bar |
-| PCManFM | desktop icons and wallpaper |
+| PiForma Panel | active Mac-style top menu bar |
+| PCManFM | desktop background and file-manager integration |
+| AtEase | At Ease-style launcher surface |
+| ControlStrip Simulator | bottom-left dock and app focus helper |
 | PipeWire / WirePlumber | audio |
 | systemd | boots custom services into the graphical target |
 
@@ -28,10 +30,12 @@ These are the companion apps that turned the desktop from a theme into an ecosys
 
 | App | Repo | Role |
 |---|---|---|
+| PiForma Panel | https://github.com/milagrofrost/piforma-panel | active Macintosh-style top panel and menu bar |
 | AtEase Simulator | https://github.com/milagrofrost/AtEase-simulator | full-screen At Ease-style launcher shell |
 | ControlStrip Simulator | https://github.com/milagrofrost/ControlStrip-Simulator | transparent Mac OS-style Control Strip dock |
 | About This PiForma | https://github.com/milagrofrost/about-this-pi | About This Mac-style system window for the build |
-| Clippy | https://github.com/milagrofrost/clippy | retro desktop assistant, forked from Felix Rieseberg's Clippy |
+| Clippy PiForma fork | https://github.com/milagrofrost/clippy-rpi | retro desktop assistant, forked from Felix Rieseberg's Clippy |
+| Flight of the Toasters | https://github.com/milagrofrost/Flight-of-the-Toasters | local Flying Toasters web app used by the launcher |
 | Macintosh PiForma docs | https://github.com/milagrofrost/Macintosh-PiForma-docs | build documentation, BOM, wiring, lore, and maintenance notes |
 
 ## AtEase Simulator
@@ -45,7 +49,9 @@ Known installed paths from the live audit:
 ```text
 /usr/bin/atease
 /usr/share/applications/AtEase.desktop
-~/.config/atease/config.yaml
+~/.local/share/atease/config.yaml
+~/.local/share/atease/apps/
+~/.local/share/atease/apps-2/
 ~/.local/share/atease/
 ```
 
@@ -55,7 +61,7 @@ Service:
 atease.service
 ```
 
-The current config uses a 640x480 base canvas, fit scaling, bezel safe-area insets, a platinum theme, ChicagoFLF, and click sounds.
+The current live config renders at x=77, y=0, width=656, height=480. It starts on the main At Ease Items folder and also defines a second `sites` folder backed by `~/.local/share/atease/apps-2/`.
 
 This is the part that makes PiForma feel less like a Linux desktop and more like a kid-safe restoration CD from an alternate Apple timeline.
 
@@ -79,7 +85,7 @@ Service:
 controlstrip-simulator.service
 ```
 
-The live config pins apps like Firefox, XFCE Terminal, Nautilus, and Chromium/Weather. It assumes X11 and EWMH behavior. Wayland is not the target right now.
+The live config pins Chromium/Netscape, LXTerminal, and PCManFM. It detects running windows with X11 tooling and focuses windows through `wmctrl`. Wayland is not the target right now.
 
 ## About This PiForma
 
@@ -117,12 +123,12 @@ Installed paths from the audit:
 Repo:
 
 ```text
-https://github.com/milagrofrost/clippy
+https://github.com/milagrofrost/clippy-rpi
 ```
 
 ## The launcher set
 
-The desktop launcher set is intentionally a little ridiculous.
+The AtEase launcher set is intentionally a little ridiculous.
 
 | Launcher | Actually runs |
 |---|---|
@@ -130,13 +136,15 @@ The desktop launcher set is intentionally a little ridiculous.
 | America Online | Chromium kiosk to a web AOL simulator |
 | Encarta | Kiwix |
 | Flying Toasters | Chromium kiosk to local web server |
-| Kid Pix | Tux Paint |
+| LimeWire | Chromium kiosk launcher |
 | Macintosh HD | PCManFM home folder |
 | Mac OS 9 | SheepShaver AppImage |
 | RetroPie | EmulationStation in LXTerminal |
 | Winamp | QMMP |
 | Weather Channel | local Weather Channel launcher script |
 | Terminal | LXTerminal |
+
+Kid Pix, LinApple, DOSBox-X, Windows 98, and Tux Paint should be documented as historical, dormant, or pending owner confirmation until they have current launchers in the live AtEase folders.
 
 This is not about historical purity. It is about making the machine fun to touch.
 
@@ -187,6 +195,6 @@ That split matters:
 
 The software is not just a skin. It is how the machine becomes usable.
 
-The Apple logo launches apps. The Control Strip gives it a living dock. AtEase makes it feel approachable. The boot chime gives it ceremony. The desktop launchers make it silly in the right way.
+The Apple logo launches apps. The Control Strip gives it a living dock. AtEase makes it feel approachable. The boot chime gives it ceremony. The AtEase launcher set makes it silly in the right way.
 
 That is the difference between a Raspberry Pi project and Macintosh PiForma.
