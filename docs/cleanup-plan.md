@@ -31,14 +31,27 @@ Why:
 
 ```text
 /etc/systemd/system/atease.service
-~/.config/atease/config.yaml
-~/.local/share/atease/
+~/.local/share/atease/config.yaml
+~/.local/share/atease/apps/
+~/.local/share/atease/apps-2/
 /usr/share/applications/AtEase.desktop
 ```
 
 Why:
 
 AtEase is now part of the finished experience. Its config should be preserved with the build docs.
+
+### PiForma Panel
+
+```text
+~/.config/systemd/user/piforma-panel.service
+~/.local/share/piforma-panel/config.yaml
+/usr/share/applications/PiForma Panel.desktop
+```
+
+Why:
+
+PiForma Panel is the active top panel and owns the visible menu bar. LXPanel-pi and tint2 configs should be treated as stale or fallback artifacts unless they are intentionally reactivated later.
 
 ### ControlStrip Simulator
 
@@ -66,7 +79,7 @@ The Control Strip depends on X11 window matching and app config. That config is 
 
 Why:
 
-The look is not one file. It is a pile of theme, panel, icon, font, and Openbox details that together make the illusion work.
+The look is not one file. It is a pile of theme, panel, icon, font, and Openbox details that together make the illusion work. Preserve LXPanel-pi only as historical/fallback configuration unless a later audit shows it active again.
 
 ### Boot and display
 
@@ -168,7 +181,7 @@ Also do not delete:
 /usr/local/bin/volume_knob.py
 ~/weather-channel/
 ~/.local/share/flyingtoasters/build
-~/.config/atease/config.yaml
+~/.local/share/atease/config.yaml
 ~/.local/share/control-strip/config.yaml
 ```
 
