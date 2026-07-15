@@ -70,7 +70,7 @@ Useful commands:
 ```bash
 pactl list short sinks
 pactl get-sink-volume @DEFAULT_SINK@
-systemctl status volume-knob.service
+systemctl status volume-knob.service --no-pager
 ```
 
 ## Apple logo gestures not working
@@ -86,7 +86,7 @@ Check:
 Useful commands:
 
 ```bash
-systemctl status apple-gesture-button.service
+systemctl status apple-gesture-button.service --no-pager
 journalctl -u apple-gesture-button.service -f
 ```
 
@@ -101,7 +101,7 @@ Check:
 5. PipeWire default sink exists
 
 ```bash
-systemctl status volume-knob.service
+systemctl status volume-knob.service --no-pager
 journalctl -u volume-knob.service -f
 ```
 

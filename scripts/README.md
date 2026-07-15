@@ -107,7 +107,7 @@ No broken custom launcher targets were found in the inspected set. The only cust
 
 ## Deployment Locations
 
-System-level scripts used by system services live under `/usr/local/bin` and were verified as `root:root` with executable mode `755`:
+System-level scripts used by system services live under `/usr/local/bin`. The 2026-07-15 systemd audit found these live files executable with mode `755`, but owned by `nobody:nogroup`; that ownership is unusual and should be reviewed before a future hardening pass:
 
 ```text
 /usr/local/bin/apple_gesture_button.py
@@ -178,7 +178,7 @@ Expected guidance:
 - System-level scripts under `/usr/local/bin` are normally owned by `root:root`.
 - User-level scripts under `/home/frost` are normally owned by `frost`.
 - Repository copies should preserve executable mode where appropriate.
-- Service units belong in `systemd/` and should not be executable.
+- Service units belong under `systemd/system/` or `systemd/user/` and should not be executable.
 
 ## Synchronizing Repository And Live Scripts
 

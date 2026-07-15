@@ -1,0 +1,18 @@
+[Unit]
+Description=AtEase launcher shell
+After=display-manager.service graphical.target
+Wants=graphical.target
+
+[Service]
+Type=simple
+User=frost
+Group=frost
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/frost/.Xauthority
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+ExecStart=/usr/bin/atease
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical.target
