@@ -20,6 +20,47 @@ Future improvement:
 - add better strain relief
 - avoid disturbing the connector once stable
 
+## Raspberry Pi heat can warp the upper shelf
+
+The Raspberry Pi 4B runs very hot inside the enclosed case. Because the Pi originally sat directly on the upper printed shelf, prolonged heat softened and warped the shelf plastic.
+
+The LCD display controller board is mounted directly beneath that shelf. As the shelf sagged and flexed, it began pressing against or bending the display controller board. This produced symptoms that initially looked like a bad ribbon cable or loose display connection, including:
+
+- graphical glitches
+- intermittent display failure
+- loss or distortion of color
+- image instability
+- behavior that changed when the shelf, controller board, or ribbon area was disturbed
+
+The actual cause was mechanical pressure on the display controller board resulting from heat deformation above it, not necessarily a failed LCD ribbon.
+
+Current mitigation:
+
+- Raspberry Pi elevated above the printed shelf with an additional 3D printed cradle or mount
+- air gap added between the Pi and the shelf
+- aluminum foil used as a heat-reflective layer below the Pi and above it near the top of the shelf enclosure
+- shelf secured to the case with a zip tie to reduce further sagging
+- display controller board checked to ensure the shelf is no longer flexing it
+
+The foil must remain electrically isolated from the Raspberry Pi, display controller, GPIO pins, solder joints, and other exposed electronics because aluminum foil is conductive.
+
+Current result:
+
+- the shelf appears more stable
+- heat transfer into the printed shelf is reduced
+- display glitches caused by pressure on the controller board have not returned so far
+
+Future improvement:
+
+- redesign the upper shelf with a center support column or rib
+- use a more heat-resistant filament for the shelf
+- add a purpose-built Pi mount with permanent airflow clearance
+- add active or passive cooling for the Raspberry Pi
+- replace loose foil with a nonconductive thermal barrier or properly secured insulated heat shield
+- add ventilation openings if they can be incorporated without harming the exterior appearance
+- monitor Pi temperature during extended use
+- inspect the display controller board and shelf whenever unexplained display problems appear
+
 ## Battery fit is tight
 
 The Anker battery is held in the rear by friction.
