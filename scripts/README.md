@@ -12,12 +12,10 @@ Once a repository copy has been verified against the deployed file, use the repo
 
 | Script | Purpose | Live path | Started by | Repository status |
 |---|---|---|---|---|
-| `apple_gesture_button.py` | Reads the capacitive Apple-logo input and interprets taps and timed holds for app, desktop, and power actions. | `/usr/local/bin/apple_gesture_button.py` | system service: `apple-gesture-button.service` | Recommended; not yet archived in `scripts/` |
-| `volume_knob.py` | Reads the EC11 rotary encoder and controls the PipeWire-compatible default audio sink through `pactl`. | `/usr/local/bin/volume_knob.py` | system service: `volume-knob.service` | Recommended; not yet archived in `scripts/` |
-| `weather-channel.sh` | Launches the local Weather Channel / WeatherStar presentation through Chromium kiosk mode and the local splash page. | `/home/frost/weather-channel/weather-channel.sh` | AtEase `.desktop` launcher | Recommended; not yet archived in `scripts/` |
+| `apple_gesture_button.py` | Reads the capacitive Apple-logo input and interprets taps and timed holds for app, desktop, and power actions. | `/usr/local/bin/apple_gesture_button.py` | system service: `apple-gesture-button.service` | Archived as `scripts/apple_gesture_button.py` |
+| `volume_knob.py` | Reads the EC11 rotary encoder and controls the PipeWire-compatible default audio sink through `pactl`. | `/usr/local/bin/volume_knob.py` | system service: `volume-knob.service` | Archived as `scripts/volume_knob.py` |
+| `weather-channel.sh` | Launches the local Weather Channel / WeatherStar presentation through Chromium kiosk mode and the local splash page. | `/home/frost/weather-channel/weather-channel.sh` | AtEase `.desktop` launcher | Archived as `scripts/weather-channel.sh` |
 | `usb-audio-loop.sh` | Detects the configured USB audio-input source and loops incoming audio to the PiForma speaker output. | `/home/frost/bin/usb-audio-loop.sh` | user service: `usb-audio-loop.service` | Archived as `scripts/usb-audio-loop.sh` |
-| `run_this.sh` | Small window-positioning helpers found on the live system; no current service or launcher invocation was verified. | `/home/frost/run_this.sh`; `/usr/local/bin/linamp/run_this.sh` | unverified/manual | Present live, not archived; pending classification |
-| `center-display.sh` | Previously listed as a recommended script, but no live file or launcher/service invocation was found during this audit. | not verified | unverified | Pending archival or removal from recommendations |
 
 ## Active Deployed Scripts
 
@@ -71,31 +69,6 @@ When that source appears in `pactl list short sources`, the script sets the sour
 
 The helper may be active as a service while no audio loop is running if the external USB input device is not connected.
 
-## Present But Not Verified Active
-
-### `run_this.sh`
-
-Two live files named `run_this.sh` were found:
-
-| Live path | Verified content | Invocation status |
-|---|---|---|
-| `/home/frost/run_this.sh` | Runs `wmctrl` commands against a window named `panel`. | No systemd unit or `.desktop` launcher invocation found. |
-| `/usr/local/bin/linamp/run_this.sh` | Uses `xdotool` and `wmctrl` to resize/reposition a window named `Linamp`. | No systemd unit or `.desktop` launcher invocation found. |
-
-Treat these as pending classification. They may be manual utilities, old startup helpers, or leftovers from an experiment. Do not add either one to the recommended archived inventory until its current caller and purpose are verified.
-
-## Unverified Or Pending Archival
-
-These scripts are referenced by documentation or prior inventory lists but are not archived here yet:
-
-| Script | Current status |
-|---|---|
-| `apple_gesture_button.py` | Verified active on the live Pi; should be archived from `/usr/local/bin/apple_gesture_button.py`. |
-| `volume_knob.py` | Verified active on the live Pi; should be archived from `/usr/local/bin/volume_knob.py`. |
-| `weather-channel.sh` | Verified active through an AtEase launcher; should be archived from `/home/frost/weather-channel/weather-channel.sh`. |
-| `center-display.sh` | Not found in the live search paths used for this audit; keep pending until a real deployed copy or historical archive is identified. |
-| `run_this.sh` | Found live, but no active caller was verified; classify before archiving. |
-
 ## Historical Or Obsolete Names
 
 The external USB audio helper was formerly discovered as `n64-audio-loop.sh` with a matching user service name. The current canonical names are `usb-audio-loop.sh` and `usb-audio-loop.service`. The old names should appear only in historical migration notes, not in current deployment instructions.
@@ -146,8 +119,6 @@ User-level scripts live under `/home/frost` and were verified as `frost:frost` w
 ```text
 /home/frost/weather-channel/weather-channel.sh
 /home/frost/bin/usb-audio-loop.sh
-/home/frost/run_this.sh
-/usr/local/bin/linamp/run_this.sh
 ```
 
 Repository copies should retain executable mode when the deployed script is executed directly. systemd service files belong under `systemd/`, not `scripts/`.
@@ -163,7 +134,7 @@ bash -n scripts/weather-channel.sh
 bash -n scripts/usb-audio-loop.sh
 ```
 
-Only run commands for files that are actually present in the repository. At the time of this audit, only `scripts/usb-audio-loop.sh` is archived here.
+Only run commands for files that are actually present in the repository. The verified active scripts listed in the inventory are now archived here.
 
 Validate live files on the Pi with verified deployment paths:
 

@@ -238,8 +238,6 @@ scripts/apple_gesture_button.py
 scripts/volume_knob.py
 scripts/weather-channel.sh
 scripts/usb-audio-loop.sh
-scripts/center-display.sh
-scripts/run_this.sh
 ```
 
 Suggested systemd units:
