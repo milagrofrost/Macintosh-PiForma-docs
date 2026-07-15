@@ -1,0 +1,157 @@
+# Migrated from ~/.config/lxpanel-pi/panels/panel.
+# LXPanel-specific plugins are represented by tint2's launcher, taskbar,
+# system tray, and clock.
+
+# Backgrounds
+rounded = 6
+border_width = 1
+border_sides = TBLR
+background_color = #d8d8d8 100
+border_color = #808080 100
+background_color_hover = #e8e8e8 100
+border_color_hover = #ffffff 100
+background_color_pressed = #c0c0c0 100
+border_color_pressed = #404040 100
+
+rounded = 0
+border_width = 1
+border_sides = TBLR
+background_color = #f0f0f0 100
+border_color = #808080 100
+background_color_hover = #ffffff 100
+border_color_hover = #808080 100
+background_color_pressed = #c0c0c0 100
+border_color_pressed = #404040 100
+
+rounded = 0
+border_width = 0
+border_sides = TBLR
+background_color = #d8d8d8 0
+border_color = #000000 0
+background_color_hover = #d8d8d8 0
+border_color_hover = #000000 0
+background_color_pressed = #d8d8d8 0
+border_color_pressed = #000000 0
+
+# Panel geometry: top edge, 20 px high, 656 px wide, 77 px from left.
+panel_items = PSTC
+panel_size = 656 20
+panel_margin = 77 0
+panel_padding = 4 0 2
+panel_background_id = 1
+wm_menu = 1
+panel_dock = 0
+panel_position = top left horizontal
+panel_layer = top
+panel_monitor = 1
+primary_monitor_first = 0
+autohide = 0
+autohide_show_timeout = 0
+autohide_hide_timeout = 0.5
+autohide_height = 2
+strut_policy = none
+panel_window_name = tint2
+disable_transparency = 0
+mouse_effects = 1
+font_shadow = 0
+mouse_hover_icon_asb = 100 0 10
+mouse_pressed_icon_asb = 100 0 0
+
+# Apple-style menu button from LXPanel's smenu plugin.
+button = new
+button_icon = /home/frost/apple.png
+button_text =
+button_tooltip = Menu
+button_background_id = 3
+button_centered = 1
+button_padding = 2 0 0
+button_max_icon_size = 14
+button_lclick_command = xdotool key ctrl+Escape
+
+# Invisible filler taskbar
+taskbar_mode = single_desktop
+taskbar_padding = 0 0 0
+taskbar_background_id = 3
+taskbar_active_background_id = 3
+taskbar_name = 0
+taskbar_hide_if_empty = 0
+
+task_icon = 0
+task_text = 0
+task_centered = 1
+task_maximum_size = 1 1
+task_padding = 0 0 0
+task_font = ChicagoFLF Medium 7
+task_font_color = #000000 0
+task_icon_asb = 100 0 0
+task_tooltip = 0
+task_thumbnail = 0
+task_background_id = 3
+task_active_background_id = 3
+task_urgent_background_id = 3
+task_iconified_background_id = 3
+
+# Launcher: LXPanel had a Thunar launchbar button.
+launcher_padding = 2 0 2
+launcher_background_id = 3
+launcher_icon_background_id = 3
+launcher_icon_size = 18
+launcher_icon_asb = 100 0 0
+launcher_icon_theme = MoNine
+launcher_icon_theme_override = 0
+startup_notifications = 1
+launcher_tooltip = 1
+launcher_item_app = /usr/share/applications/thunar.desktop
+
+# System tray replaces LXPanel bluetooth/netman/volumepulse plugins where
+# those services expose tray indicators.
+systray_padding = 2 0 2
+systray_background_id = 3
+systray_sort = ascending
+systray_icon_size = 18
+systray_icon_asb = 100 0 0
+
+# Battery indicator, enabled only when a battery is present.
+battery_tooltip = 1
+battery_low_status = 10
+battery_low_cmd =
+battery_full_cmd =
+battery_font = ChicagoFLF Medium 7
+bat1_font = ChicagoFLF Medium 7
+bat2_font = ChicagoFLF Medium 7
+battery_font_color = #000000 100
+battery_padding = 2 0
+battery_background_id = 3
+battery_hide = never
+
+# Clock
+time1_format = %H:%M
+time2_format =
+time1_font = ChicagoFLF Medium 7
+time1_timezone =
+time2_timezone =
+clock_font_color = #000000 100
+clock_padding = 5 0
+clock_background_id = 3
+clock_tooltip =
+clock_tooltip_timezone =
+clock_lclick_command =
+clock_rclick_command =
+clock_mclick_command =
+clock_uwheel_command =
+clock_dwheel_command =
+
+# Tooltip
+tooltip_padding = 4 2
+tooltip_show_timeout = 0.5
+tooltip_hide_timeout = 0.1
+tooltip_background_id = 2
+tooltip_font_color = #000000 100
+tooltip_font = ChicagoFLF Medium 7
+
+# Mouse actions
+mouse_left = toggle_iconify
+mouse_middle = none
+mouse_right = close
+mouse_scroll_up = toggle
+mouse_scroll_down = iconify

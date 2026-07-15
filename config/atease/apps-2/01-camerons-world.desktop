@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Cameron's World
+Comment=Open Cameron's World in Chromium at 70 percent scale
+Exec=chromium --force-device-scale-factor=0.7 https://www.cameronsworld.net/
+Icon=/home/frost/.local/share/icons/camerons-world.png
+Terminal=false
+Categories=Network;WebBrowser;
+StartupNotify=true

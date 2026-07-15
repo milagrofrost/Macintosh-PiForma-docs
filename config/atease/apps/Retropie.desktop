@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Retropie
+Comment=Launch EmulationStation
+Exec=lxterminal -e emulationstation --debug
+Icon=/home/frost/.local/share/icons/retropie.png
+Terminal=false
+Categories=Game;

@@ -1,0 +1,38 @@
+bar:
+  width: 658
+  height: 20
+  x: 76
+  y: 0
+  radius_top_left: 10
+  radius_top_right: 10
+  font_family: Charcoal
+  font_size: 12
+
+apple:
+  logo_path: /home/frost/.local/share/icons/apple-9.png
+
+clock:
+  enabled: true
+  format: "%I:%M %p"
+
+applications:
+  scan_dirs:
+    - /home/frost/.local/share/applications
+    - /usr/local/share/applications
+    - /usr/share/applications
+  show_no_display: false
+  group_by_categories: true
+  show_category_labels: false
+  max_menu_height: 420
+
+menus:
+  show_file: true
+  show_edit: true
+  show_view: true
+  show_special: true
+
+show_desktop_apps:
+  - piforma-panel
+  - controlstrip-simulator
+  - atease
+  - clippy

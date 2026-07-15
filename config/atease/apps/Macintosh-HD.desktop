@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Macintosh HD
+Comment=Open Home Folder
+Exec=pcmanfm /home/frost
+Icon=/home/frost/.local/share/icons/hdd.png
+Terminal=false
+Categories=FileManager;

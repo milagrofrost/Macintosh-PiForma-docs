@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Infinite Mac
+Comment=Open Infinite Mac in Chromium at 70 percent scale
+Exec=chromium --force-device-scale-factor=0.7 https://infinitemac.org/
+Icon=/home/frost/.local/share/icons/infinite-mac.png
+Terminal=false
+Categories=Network;WebBrowser;
+StartupNotify=true

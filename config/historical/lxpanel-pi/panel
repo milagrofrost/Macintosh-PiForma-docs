@@ -1,0 +1,95 @@
+# lxpanel <profile> config file. Manually editing is not recommended.
+# Use preference dialog in lxpanel to adjust config when you can.
+
+Global {
+  edge=top
+  align=left
+  margin=77
+  widthtype=pixel
+  width=656
+  height=20
+  transparent=1
+  tintcolor=#ffffff
+  alpha=0
+  autohide=0
+  heightwhenhidden=2
+  setdocktype=1
+  setpartialstrut=1
+  usefontcolor=0
+  fontsize=8
+  fontcolor=#ffffff
+  usefontsize=0
+  background=0
+  iconsize=20
+  monitor=0
+  point_at_menu=0
+  notify_timeout=10
+}
+Plugin {
+  type=smenu
+  Config {
+    image=/home/frost/apple.png
+    icon=apple
+    padding=6
+    search_fixed=1
+    search_height=20
+  }
+}
+Plugin {
+  type=space
+  Config {
+    Size=522
+  }
+}
+Plugin {
+  type=bluetooth
+  Config {
+  }
+}
+Plugin {
+  type=space
+  Config {
+    Size=2
+  }
+}
+Plugin {
+  type=space
+  Config {
+    Size=2
+  }
+}
+Plugin {
+  type=volumepulse
+  Config {
+  }
+}
+Plugin {
+  type=space
+  Config {
+    Size=2
+  }
+}
+Plugin {
+  type=clock
+  Config {
+  }
+}
+Plugin {
+  type=space
+  Config {
+    Size=5
+  }
+}
+Plugin {
+  type=magnifier
+  Config {
+  }
+}
+Plugin {
+  type=launchbar
+  Config {
+    Button {
+      id=thunar.desktop
+    }
+  }
+}

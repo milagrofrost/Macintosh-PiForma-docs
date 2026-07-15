@@ -1,0 +1,31 @@
+window:
+  left: 77
+  width: 600
+  height: 200
+strip:
+  visible_icons: null
+  snap_back_seconds: 10
+screenCorner:
+  enabled: true
+  position: bottom-left
+  radius: 10
+  color: '#000000'
+window_filters:
+  exclude_wm_classes:
+  - Clippy
+  - Controlstrip-simulator
+  - Piforma-panel
+  - Atease
+pinned_apps:
+- desktop_file: /usr/share/applications/chromium.desktop
+  icon: /home/frost/.local/share/icons/netscape-16.png
+  match:
+    wm_class: Chromium
+- desktop_file: /usr/share/applications/lxterminal.desktop
+  icon: /home/frost/.local/share/icons/terminal-16.png
+  match:
+    wm_class: Lxterminal
+- desktop_file: /usr/share/applications/pcmanfm.desktop
+  icon: /home/frost/.local/share/icons/finder-16.png
+  match:
+    wm_class: Pcmanfm

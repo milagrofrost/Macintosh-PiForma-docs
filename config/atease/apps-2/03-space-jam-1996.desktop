@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Space Jam 1996
+Comment=Open Space Jam 1996 in Chromium at 70 percent scale
+Exec=chromium --force-device-scale-factor=0.7 https://www.spacejam.com/1996/
+Icon=/home/frost/.local/share/icons/space-jam-1996.png
+Terminal=false
+Categories=Network;WebBrowser;
+StartupNotify=true

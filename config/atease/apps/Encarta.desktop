@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Encarta
+Comment=Encarta Encyclopedia
+Exec=flatpak run org.kiwix.desktop
+Icon=/home/frost/.local/share/icons/encarta.png
+Terminal=false
+Categories=Education;Information;

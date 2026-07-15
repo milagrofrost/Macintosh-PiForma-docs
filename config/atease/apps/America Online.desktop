@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=America Online
+Comment=AOL Simulator
+Exec=chromium --kiosk  --disable-infobars --noerrdialogs --disable-session-crashed-bubble --app="https://startscreen.org/aol"
+Icon=/home/frost/.local/share/icons/aol.png
+Terminal=false
+Categories=Internet
