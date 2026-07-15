@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Weather Channel
+Comment=WeatherStar 4000
+Exec=/home/frost/weather-channel/weather-channel.sh
+Icon=/home/frost/.local/share/icons/weather-channel.png
+Terminal=false
+Categories=Internet;

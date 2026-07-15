@@ -1,0 +1,22 @@
+render:
+  left: 77
+  top: 0
+  width: 656
+  height: 480
+  scale: 1.0
+window:
+  always_on_bottom: true
+  skip_taskbar: true
+  ignore_work_area: true
+  corner_radius: 10
+folders:
+  - id: main
+    label: At Ease Items
+    hue: 0
+
+  - id: second
+    label: sites
+    hue: -128
+    items_folder: "~/.local/share/atease/apps-2"
+
+startup_folder: main

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Terminal
+Comment=Open Terminal
+Exec=/usr/bin/lxterminal -e /usr/bin/zsh
+Icon=/home/frost/.local/share/icons/terminal.png
+Terminal=false
+Categories=System;TerminalEmulator;

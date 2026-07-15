@@ -239,7 +239,7 @@ Copy these from the Pi into this repo:
 /etc/systemd/system/volume-knob.service
 /etc/systemd/system/atease.service
 ~/.config/systemd/user/controlstrip-simulator.service
-~/.config/lxpanel-pi/panels/panel
+~/.config/lxpanel-pi/panels/panel  # historical; July 2026 audit verified PiForma Panel as active
 ~/.config/openbox/rpd-rc.xml
 ~/.config/gtk-3.0/settings.ini
 /boot/firmware/config.txt

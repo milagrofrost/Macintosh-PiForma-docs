@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=LimeWire
+Comment=LimeWire Simulator
+Exec=chromium --kiosk  --disable-infobars --noerrdialogs --disable-session-crashed-bubble --app="https://pirate.milagrofrost.com?left=76&right=64"
+Icon=/home/frost/.local/share/icons/limewire.png
+Terminal=false
+Categories=Internet

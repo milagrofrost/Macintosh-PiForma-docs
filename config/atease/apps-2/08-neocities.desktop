@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Neocities
+Comment=Open Neocities in Chromium at 70 percent scale
+Exec=chromium --force-device-scale-factor=0.7 https://neocities.org/browse
+Icon=/home/frost/.local/share/icons/neocities.png
+Terminal=false
+Categories=Network;WebBrowser;
+StartupNotify=true

@@ -68,7 +68,7 @@ The Control Strip depends on X11 window matching and app config. That config is 
 ### Desktop and theme
 
 ```text
-~/.config/lxpanel-pi/panels/panel
+~/.config/lxpanel-pi/panels/panel  # historical/fallback; PiForma Panel is active
 ~/.config/openbox/rpd-rc.xml
 ~/.config/pcmanfm/LXDE-pi/desktop-items-0.conf
 ~/.config/gtk-3.0/settings.ini

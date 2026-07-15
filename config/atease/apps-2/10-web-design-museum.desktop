@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Web Design Museum
+Comment=Open Web Design Museum in Chromium at 70 percent scale
+Exec=chromium --force-device-scale-factor=0.7 https://www.webdesignmuseum.org/
+Icon=/home/frost/.local/share/icons/web-design-museum.png
+Terminal=false
+Categories=Network;WebBrowser;
+StartupNotify=true

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Windows 93
+Comment=Open Windows 93 in Chromium at 70 percent scale
+Exec=chromium --force-device-scale-factor=0.7 https://www.windows93.net/
+Icon=/home/frost/.local/share/icons/windows-93.png
+Terminal=false
+Categories=Network;WebBrowser;
+StartupNotify=true

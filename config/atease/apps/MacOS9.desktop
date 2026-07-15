@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Mac OS 9
+Comment=Boot SheepShaver
+Exec=/home/frost/emulation/SheepShaver-aarch64.AppImage
+Icon=/home/frost/.local/share/icons/os9.png
+Terminal=false
+Categories=System;Emulator;

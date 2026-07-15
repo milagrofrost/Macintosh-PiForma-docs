@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Winamp
+Comment=Winamp-style player
+Exec=qmmp
+Icon=/home/frost/.local/share/icons/winamp.png
+Terminal=false
+Categories=Audio;Player;

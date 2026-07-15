@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Shareware CDs
+Comment=Open Shareware CDs in Chromium at 70 percent scale
+Exec=chromium --force-device-scale-factor=0.7 https://cd.textfiles.com/
+Icon=/home/frost/.local/share/icons/shareware-cds.png
+Terminal=false
+Categories=Network;WebBrowser;
+StartupNotify=true

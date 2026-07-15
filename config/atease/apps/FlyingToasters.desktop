@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Flying Toasters
+Comment=FlyingK8s Dashboard
+Exec=chromium --kiosk --start-fullscreen --disable-infobars --noerrdialogs --disable-session-crashed-bubble --app="http://localhost:3000/?configFile=smaller"
+Icon=/home/frost/.local/share/icons/toaster.png
+Terminal=false
+Categories=Graphics;

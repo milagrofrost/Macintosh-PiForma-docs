@@ -73,25 +73,35 @@ It is not macOS. It is Raspberry Pi OS wearing a thrift-store Macintosh costume,
 Known files and directories touched during the build:
 
 ```text
-/boot/firmware/config.txt
-/boot/config.txt
-/etc/default/keyboard
-/etc/xdg/lxsession/rpd-x/autostart
-~/.config/openbox/rpd-rc.xml
+/boot/firmware/config.txt                 active boot config
+/boot/config.txt                          pointer to /boot/firmware/config.txt
+/etc/default/keyboard                     active keyboard defaults
+/etc/xdg/lxsession/rpd-x/autostart        system LXSession fallback
+~/.config/lxsession/rpd-x/autostart       active user LXSession override
+~/.config/openbox/rpd-rc.xml              active Openbox config
 ~/.config/pcmanfm/LXDE-pi/desktop-items-0.conf
-~/.config/lxpanel-pi/panels/panel
 ~/.local/share/piforma-panel/config.yaml
 ~/.local/share/control-strip/config.yaml
+~/.local/share/control-strip/scripts/window-check.sh
 ~/.local/share/atease/config.yaml
 ~/.local/share/atease/apps/
 ~/.local/share/atease/apps-2/
 ~/.config/SheepShaver/prefs
-~/.sheepshaver_prefs
-~/.asoundrc
 ~/weather-channel/
 ~/Desktop/
 ~/.icons/
 ~/.themes/
+```
+
+Historical or missing paths found during the July 2026 config audit:
+
+```text
+~/.config/lxpanel-pi/panels/panel         historical; PiForma Panel is active
+~/.config/tint2/tint2rc                   historical; no tint2 process active
+~/.config/atease/config.yaml              historical AtEase schema/path
+~/.config/pcmanfm/default/desktop-items-0.conf
+~/.sheepshaver_prefs                      not found
+~/.asoundrc                               not found
 ```
 
 ## Custom services
@@ -258,15 +268,22 @@ Suggested config snapshots:
 
 ```text
 config/boot/firmware/config.txt
+config/keyboard/default-keyboard
+config/lxsession/rpd-x-autostart
+config/lxsession/system-rpd-x-autostart
 config/openbox/rpd-rc.xml
+config/pcmanfm/desktop-items-0.conf
 config/piforma-panel/config.yaml
 config/control-strip/config.yaml
+config/control-strip/scripts/window-check.sh
 config/atease/config.yaml
 config/atease/apps/
 config/atease/apps-2/
-config/lxpanel-pi/panel
-config/pcmanfm/desktop-items-0.conf
-config/lxsession/autostart
 config/sheepshaver/prefs
-config/asoundrc
+config/historical/lxpanel-pi/panel
+config/historical/tint2/tint2rc
+config/historical/atease-legacy/config.yaml
+config/historical/pcmanfm-default/desktop-items-0.conf
 ```
+
+See `config/README.md` for the verified archive status, restore paths, validation commands, and missing files such as `/home/frost/.asoundrc`.

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=The Old Net
+Comment=Open The Old Net in Chromium at 70 percent scale
+Exec=chromium --force-device-scale-factor=0.7 https://theoldnet.com/
+Icon=/home/frost/.local/share/icons/the-old-net.png
+Terminal=false
+Categories=Network;WebBrowser;
+StartupNotify=true
