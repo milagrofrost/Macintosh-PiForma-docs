@@ -164,7 +164,7 @@ The archive preserves live file modes. Important examples from the audit:
 | `/home/frost/.local/share/atease/apps/*.desktop` | `frost:frost` | `775` |
 | `/home/frost/.local/share/atease/apps-2/*.desktop` | `frost:frost` | `755` |
 
-Executable helper scripts and launchers should retain executable mode. Service files belong in `systemd/`, not in `config/`.
+Executable helper scripts and launchers should retain executable mode. Service files belong under `systemd/system/` or `systemd/user/`, not in `config/`.
 
 Check repository modes with:
 

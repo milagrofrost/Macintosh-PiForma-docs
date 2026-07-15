@@ -1,0 +1,15 @@
+[Unit]
+Description=PiForma Panel
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart="/usr/bin/piforma-panel"
+Restart=on-failure
+RestartSec=2
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

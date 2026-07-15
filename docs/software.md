@@ -239,11 +239,11 @@ satellite.png
 
 The kiosk flow shows a satellite image first, then opens the WeatherStar web interface in Chromium kiosk/app mode.
 
-## Suggested repo files
+## Archived repo files
 
-Copy the real live files from the Pi into the repo later.
+The repository now archives the verified live service units and key helper/config snapshots. Use the service inventory in [../systemd/README.md](../systemd/README.md) as the scope-aware source for unit paths, enablement state, and recovery commands.
 
-Suggested scripts:
+Archived scripts:
 
 ```text
 scripts/apple_gesture_button.py
@@ -252,19 +252,19 @@ scripts/weather-channel.sh
 scripts/usb-audio-loop.sh
 ```
 
-Suggested systemd units:
+Archived systemd units:
 
 ```text
-systemd/apple-gesture-button.service
-systemd/volume-knob.service
-systemd/atease.service
-systemd/flyingtoasters.service
+systemd/system/apple-gesture-button.service
+systemd/system/volume-knob.service
+systemd/system/atease.service
+systemd/system/flyingtoasters.service
 systemd/user/piforma-panel.service
 systemd/user/controlstrip-simulator.service
 systemd/user/usb-audio-loop.service
 ```
 
-Suggested config snapshots:
+Archived config snapshots:
 
 ```text
 config/boot/firmware/config.txt
