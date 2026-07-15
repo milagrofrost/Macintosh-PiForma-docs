@@ -104,7 +104,7 @@ Known files and directories touched during the build:
 | `flyingtoasters.service` | system | Serves local Flying Toasters web build |
 | `piforma-panel.service` | user | Starts PiForma Panel |
 | `controlstrip-simulator.service` | user | Starts ControlStrip Simulator |
-| `n64-audio-loop.service` | user | Optional external-input audio helper |
+| `usb-audio-loop.service` | user | Optional external USB audio-input loop |
 
 ## Apple logo gesture button
 
@@ -182,7 +182,10 @@ Normal output:
 
 Optional external audio:
 
-- USB-to-3.5mm/RCA adapter can be used when RCA audio is needed
+- `usb-audio-loop.service` is not Nintendo 64-specific. It watches for the configured external USB audio-input or capture device and loops incoming audio to the PiForma's normal output speakers.
+- The current helper selects the C-Media Cable Creation adapter by its PipeWire/PulseAudio source name.
+- RCA is only one possible upstream connection method before the signal reaches the USB audio adapter; 3.5 mm or other analog connectors can also feed an appropriate adapter.
+- The rear RCA jack described in the hardware documentation is composite video only. Analog external audio input requires an external USB audio adapter.
 
 Previous experiments included MAX98357A I2S amplifier boards and other audio adapters. The final installed path is the internal USB speaker because it works.
 
@@ -236,7 +239,7 @@ Suggested scripts:
 scripts/apple_gesture_button.py
 scripts/volume_knob.py
 scripts/weather-channel.sh
-scripts/n64-audio-loop.sh
+scripts/usb-audio-loop.sh
 scripts/center-display.sh
 scripts/run_this.sh
 ```
@@ -250,7 +253,7 @@ systemd/atease.service
 systemd/flyingtoasters.service
 systemd/user/piforma-panel.service
 systemd/user/controlstrip-simulator.service
-systemd/user/n64-audio-loop.service
+systemd/user/usb-audio-loop.service
 ```
 
 Suggested config snapshots:

@@ -193,7 +193,7 @@ Known sinks include:
 
 The volume knob controls `@DEFAULT_SINK@` through `pactl`.
 
-There is also an `n64-audio-loop.sh` helper that watches for a C-Media USB capture device and can loop console audio through the speakers when connected.
+The audit originally found the helper under the name `n64-audio-loop.sh`. It has since been renamed `usb-audio-loop.sh` because the helper supports any compatible external USB audio-input device and is not specific to Nintendo 64. It watches for the configured USB capture device and can loop external audio through the PiForma speakers when connected.
 
 ## Newer post-audit apps
 

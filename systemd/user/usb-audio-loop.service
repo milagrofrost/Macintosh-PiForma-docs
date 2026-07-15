@@ -1,0 +1,9 @@
+[Unit]
+Description=Loop external USB audio input to the PiForma speakers
+
+[Service]
+ExecStart=%h/bin/usb-audio-loop.sh
+Restart=always
+
+[Install]
+WantedBy=default.target

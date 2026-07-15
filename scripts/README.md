@@ -8,7 +8,7 @@ Recommended files:
 apple_gesture_button.py
 volume_knob.py
 weather-channel.sh
-n64-audio-loop.sh
+usb-audio-loop.sh
 center-display.sh
 run_this.sh
 ```
