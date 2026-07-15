@@ -239,11 +239,12 @@ The keyboard currently works over Bluetooth and charges over USB-C.
 The matching mouse uses:
 
 - Bambu wireless mouse kit electronics
-- 3D printed Apple-style mouse shell
+- [Retro Wireless Computer Mouse](https://www.printables.com/model/1339297-retro-wireless-computer-mouse) 3D printed shell
+- [Custom scroll wheel and axle](https://www.printables.com/model/1774131-scroll-wheel-and-axle-for-retro-wireless-computer)
 - USB receiver plugged into the Raspberry Pi
 - Retro Platinum PLA for the printed shell
 
-The original mouse shell model link still needs to be added.
+The original mouse design required the Bambu-supplied scroll wheel to be cut and whittled down to fit. That wheel broke during modification, so a complete replacement scroll wheel and axle were designed and printed instead.
 
 ## Bag system
 
