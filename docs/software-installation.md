@@ -41,6 +41,7 @@ Use `packages/apt-system-base.txt` as the base package reference. It contains cu
 Future rebuild simulation command, not run as an install during this audit:
 
 ```bash
+
 grep -Ev '^[[:space:]]*(#|$)' packages/apt-system-base.txt \
   | xargs -r apt-get -s install
 ```
@@ -48,6 +49,7 @@ grep -Ev '^[[:space:]]*(#|$)' packages/apt-system-base.txt \
 Future rebuild install command, to run only on rebuild media after simulation review:
 
 ```bash
+
 grep -Ev '^[[:space:]]*(#|$)' packages/apt-system-base.txt \
   | xargs -r sudo apt install -y
 ```
@@ -57,16 +59,20 @@ grep -Ev '^[[:space:]]*(#|$)' packages/apt-system-base.txt \
 Use `packages/apt-piforma-runtime.txt` for directly evidenced repository-backed runtime roots. The local PiForma `.deb` package names are intentionally not in this APT profile.
 
 ```bash
+
 grep -Ev '^[[:space:]]*(#|$)' packages/apt-piforma-runtime.txt \
   | xargs -r apt-get -s install
 ```
 
 ```bash
+
 grep -Ev '^[[:space:]]*(#|$)' packages/apt-piforma-runtime.txt \
   | xargs -r sudo apt install -y
 ```
 
 Then restore scripts, configs, local apps, and services before expecting the desktop to behave like PiForma.
+
+The AtEase and Control Strip repositories recommend `dex` as an optional fallback for launching `.desktop` files when `gio launch` is unavailable or fails. `dex` was not installed on the audited live Pi, so it is not included in the current-state runtime profile. Test it during the fresh-media rebuild and add it to the runtime roots only if the fallback is needed.
 
 ## Stage 5: Local PiForma Debian packages
 
@@ -82,16 +88,20 @@ Rebuild or reinstall:
 
 Use `packages/local-deb-packages.tsv` for source paths, current checkout commits, found `.deb` files, found `.deb` metadata, hashes, build-command confidence, and file-comparison notes. Do not assume a found `.deb` was built from the current checkout unless `verified_build_source_commit` is populated. Do not assume the `.deb` files are safely archived just because they exist on the live machine.
 
+> **Recovery warning:** The discovered About This PiForma `.deb` did not fully match the live installed files. One compared file differed and another expected file was missing. Do not use that package as a trusted recovery artifact until it has been rebuilt or independently verified.
+
 ## Stage 6: Optional applications and features
 
 Install optional APT feature roots from `packages/apt-optional-features.txt` only for the current-feature or larger profiles.
 
 ```bash
+
 grep -Ev '^[[:space:]]*(#|$)' packages/apt-optional-features.txt \
   | xargs -r apt-get -s install
 ```
 
 ```bash
+
 grep -Ev '^[[:space:]]*(#|$)' packages/apt-optional-features.txt \
   | xargs -r sudo apt install -y
 ```
@@ -103,11 +113,13 @@ Restore Flatpak apps and AppImages from `packages/non-apt-software.tsv`.
 Install development roots from `packages/apt-development.txt` for the development workstation profile.
 
 ```bash
+
 grep -Ev '^[[:space:]]*(#|$)' packages/apt-development.txt \
   | xargs -r apt-get -s install
 ```
 
 ```bash
+
 grep -Ev '^[[:space:]]*(#|$)' packages/apt-development.txt \
   | xargs -r sudo apt install -y
 ```
@@ -119,6 +131,7 @@ This intentionally includes broad C/C++, Tauri-adjacent, Qt, media, emulator, an
 Install experiments and compatibility roots only for the experimental full clone.
 
 ```bash
+
 grep -Ev '^[[:space:]]*(#|$)' packages/apt-experiments.txt \
   | xargs -r apt-get -s install
 
@@ -127,6 +140,7 @@ grep -Ev '^[[:space:]]*(#|$)' packages/apt-compatibility.txt \
 ```
 
 ```bash
+
 grep -Ev '^[[:space:]]*(#|$)' packages/apt-experiments.txt \
   | xargs -r sudo apt install -y
 
