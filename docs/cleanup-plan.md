@@ -2,6 +2,8 @@
 
 This is not a delete list. This is a make-it-recoverable-first list.
 
+Package deletion is currently deferred. The live package state is being preserved and documented in [PiForma Package Inventory](package-inventory.md), [Macintosh PiForma Software Installation](software-installation.md), and [`../packages/`](../packages/). Do not treat package cleanup candidates as removal instructions.
+
 The live audit found a bunch of old scripts, logs, installers, theme experiments, and backups. That is normal. PiForma has been a real build, and real builds leave sawdust.
 
 The rule:

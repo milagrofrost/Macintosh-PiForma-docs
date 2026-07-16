@@ -1,0 +1,31 @@
+# Curated top-level APT roots for the core PiForma runtime.
+# This file contains repository-backed runtime dependencies only.
+# Locally built PiForma .deb packages are installed in a separate stage and are
+# documented in local-deb-packages.tsv.
+
+# Audio runtime used by PiForma scripts and current desktop audio routing
+pipewire-audio
+pipewire-bin
+pipewire-pulse
+pulseaudio-utils
+wireplumber
+
+# GPIO and Python script runtime directly evidenced by the deployed scripts
+python3
+python3-gpiozero
+python3-lgpio
+
+# Script and launcher commands directly referenced by PiForma configuration
+jq
+libglib2.0-bin
+lxterminal
+wmctrl
+xdotool
+zsh
+
+# X11 shell/window-manager pieces are supplied by apt-system-base.txt.
+# PiForma-specific runtime entries below are the additional repository-backed
+# roots directly required by scripts or session behavior.
+
+# Compositor with explicit user LXDE-pi autostart evidence
+picom

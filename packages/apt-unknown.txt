@@ -1,0 +1,4 @@
+# Curated top-level APT roots whose purpose is unresolved.
+# No installable unknown roots are currently selected.
+# dpkg residue rows are documented in dpkg-residue.txt instead of being listed
+# as rebuild recommendations.

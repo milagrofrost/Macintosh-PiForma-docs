@@ -1,0 +1,6 @@
+# dpkg status residue rows recorded during the package audit.
+# These are not installed-package rebuild roots.
+# Columns: package	architecture	status	apt_mark	notes
+
+rpi-connect-lite	arm64	rc	unknown	Removed package with remaining configuration/status residue.
+tint2	arm64	rc	unknown	Removed package with remaining configuration/status residue.

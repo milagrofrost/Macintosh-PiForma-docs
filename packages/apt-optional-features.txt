@@ -1,0 +1,44 @@
+# Curated top-level APT roots for current but non-core PiForma features.
+# This is not a dependency closure. Non-APT software such as Flatpak apps,
+# SheepShaver, and RetroPie/EmulationStation is documented separately.
+
+# Browser and kiosk features
+chromium
+firefox
+surf
+
+# Audio and media applications
+ffmpeg
+ffmpegthumbnailer
+qmmp
+vlc
+yt-dlp
+
+# Flatpak support for optional applications such as Kiwix
+flatpak
+
+# Remote access and administration utilities
+rpi-connect
+x11vnc
+
+# Optional diagnostics and file/media utilities
+debsums
+dmidecode
+fbi
+file
+htop
+imagemagick
+mc
+ncdu
+net-tools
+p7zip-full
+pngcheck
+psmisc
+rsync
+strace
+usbutils
+v4l-utils
+wget
+yad
+zenity
+zip

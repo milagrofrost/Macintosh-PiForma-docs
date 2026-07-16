@@ -1,0 +1,40 @@
+# Curated top-level APT roots for retained experiments and possible future work.
+# This is not a dependency closure. It intentionally preserves experiment intent
+# without implying these packages are required by the core PiForma runtime.
+
+# DOS/Windows-era and launcher experiments
+dosbox-x
+
+# Creative and audio-production experiments
+qjackctl
+qtractor
+tuxpaint
+tuxpaint-config
+
+# Wayland, Weston, labwc, and nested-display experiments
+labwc
+rpd-wayland-core
+rpd-wayland-extras
+wayland-utils
+wayvnc
+weston
+xserver-xephyr
+
+# XFCE and alternate desktop/panel experiments
+appmenu-gtk3-module
+appmenu-registrar
+thunar
+xfce4-appmenu-plugin
+xfce4-panel
+xfce4-session
+xfce4-settings
+xfce4-terminal
+xfdesktop4
+xfwm4
+
+# Qt style and alternate UI experiments
+qt5ct
+qt6ct
+
+# Retained compositor fallback/current-state anomaly
+xcompmgr

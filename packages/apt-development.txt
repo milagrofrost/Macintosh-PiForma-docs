@@ -1,0 +1,106 @@
+# Curated top-level APT roots for local development and packaging.
+# This is not a dependency closure; APT should resolve the libraries pulled by
+# these deliberate roots. Rust is managed by rustup and documented separately.
+
+# General build, packaging, source-control, and source-fetching tools
+build-essential
+cmake
+curl
+debhelper
+devscripts
+dh-autoreconf
+dpkg-dev
+g++
+gcc
+gdb
+gh
+git
+make
+meson
+ninja-build
+pkg-config
+shellcheck
+
+# Node/Electron/Tauri build environment supplied by APT
+libnode-dev
+nodejs
+npm
+
+# Python development support
+pipenv
+python3-dev
+python3-full
+python3-pip
+python3-venv
+
+# GTK, WebKit, Tauri, appindicator, and desktop integration development
+libayatana-appindicator3-dev
+libdbus-1-dev
+libgtk-3-dev
+librsvg2-dev
+libsoup-3.0-dev
+libssl-dev
+libwebkit2gtk-4.1-dev
+libxdo-dev
+
+# Audio, GPIO, USB, and device integration development
+libasound2-dev
+libjack-jackd2-dev
+libpipewire-0.3-dev
+libpulse-dev
+libsamplerate0-dev
+libspa-0.2-dev
+libudev-dev
+libusb-1.0-0-dev
+
+# X11, Wayland, DRM, GBM, OpenGL, and Vulkan development
+libdrm-dev
+libegl1-mesa-dev
+libgbm-dev
+libgl1-mesa-dev
+libgles2-mesa-dev
+libvulkan-dev
+libwayland-dev
+libx11-dev
+libx11-xcb-dev
+libxcursor-dev
+libxi-dev
+libxinerama-dev
+libxkbcommon-dev
+libxrandr-dev
+libxss-dev
+libxv-dev
+libxxf86vm-dev
+
+# Qt development and local UI experimentation
+qt6-base-dev
+qt6-multimedia-dev
+qt6-tools-dev
+qtcreator
+
+# FFmpeg, VLC, and media development roots
+libavcodec-dev
+libavdevice-dev
+libavfilter-dev
+libavformat-dev
+libavutil-dev
+libcdio-dev
+libdiscid-dev
+libiso9660-dev
+libpostproc-dev
+libswresample-dev
+libswscale-dev
+libtag-dev
+libvlc-dev
+libvlccore-dev
+
+# Emulator, graphics, and source-build experiment development roots
+fcitx-libs-dev
+libboost-filesystem-dev
+libfreeimage-dev
+libfreetype-dev
+libfmt-dev
+librtimulib-dev
+libsdl2-dev
+libspeexdsp-dev
+swig

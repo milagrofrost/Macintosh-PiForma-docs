@@ -1,0 +1,53 @@
+# Curated top-level APT roots for the Raspberry Pi OS / X11 base.
+# This is not an installed-package snapshot and intentionally omits dependency closure.
+# Exact versioned historical kernels are recorded in apt-kernel-history.txt instead.
+
+# Raspberry Pi OS repository and hardware support
+raspberrypi-archive-keyring
+raspberrypi-net-mods
+raspberrypi-sys-mods
+raspi-config
+raspi-firmware
+raspi-utils
+rpi-eeprom
+rpi-swap
+rpi-systemd-config
+
+# Firmware and hardware enablement
+bluetooth
+bluez
+firmware-atheros
+firmware-brcm80211
+firmware-libertas
+firmware-mediatek
+firmware-realtek
+pi-bluetooth
+
+# Networking and remote shell baseline
+network-manager
+network-manager-gnome
+ssh
+wpasupplicant
+
+# Current Raspberry Pi kernel metapackage roots for this Pi 4 / arm64 rebuild path.
+# The installed rpi-2712 kernel metapackages are preserved in the forensic inventory,
+# but are not selected as normal Pi 4 rebuild roots here.
+linux-headers-rpi-v8
+linux-image-rpi-v8
+
+# X11 Raspberry Pi Desktop foundation
+lightdm
+lxpolkit
+lxsession
+openbox
+pcmanfm
+rpd-x-core
+rpd-x-extras
+xserver-xorg
+
+# Desktop/session support tools intentionally requested as roots
+alsa-utils
+dbus-x11
+desktop-file-utils
+x11-utils
+x11-xserver-utils

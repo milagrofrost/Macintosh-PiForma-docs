@@ -1,0 +1,21 @@
+# Curated top-level APT roots for compatibility and alternate runtime support.
+# The full foreign-architecture dependency set remains in apt-installed.tsv and
+# apt-package-roles.tsv. Do not treat this as a complete Wine/armhf clone recipe.
+
+# Wine-related compatibility roots currently visible in the installed state
+fonts-wine
+libwine
+libwine:armhf
+
+# AppImage and FUSE compatibility
+fuse3
+libfuse2t64
+
+# X11/Wayland bridge and alternate-session compatibility
+libwayland-bin
+qtwayland5
+xwayland
+
+# Foreign-architecture seed retained for armhf compatibility.
+# This is a root only after enabling the armhf foreign architecture.
+libc6:armhf

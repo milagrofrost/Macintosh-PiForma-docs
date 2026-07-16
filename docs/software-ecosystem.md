@@ -4,6 +4,8 @@ Macintosh PiForma is not just a Raspberry Pi in a monitor shell. The software st
 
 The hardware gives it a body. The software gives it a personality.
 
+The package-level inventory and rebuild profile work lives in [PiForma Package Inventory](package-inventory.md) and [Macintosh PiForma Software Installation](software-installation.md).
+
 ## The desktop illusion
 
 The live system is a Raspberry Pi 4 Model B running a Raspberry Pi OS / Debian 13 Trixie-style desktop stack on X11. The shell is built around LightDM, LXDE, Openbox, PCManFM, PiForma Panel, AtEase, ControlStrip Simulator, PipeWire, and a pile of intentionally nostalgic launchers.
