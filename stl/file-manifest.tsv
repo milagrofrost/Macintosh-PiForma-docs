@@ -1,0 +1,26 @@
+original_filename	normalized_path	sha256	notes
+5v rail box.3mf	stl/power-rail/5v-rail-enclosure.3mf	cb2d1d31610fc430594d3b75e5a866f3decb3d417daab85e79ae30d247d0ba5e	
+5v rail box.stl	stl/power-rail/5v-rail-enclosure.stl	c1e503befb370a32c30d6488c2c14dbd2e63b3bed7752a311e3c15a78d57888a	
+appl-crt-led-cover.3mf	stl/status-led/apple-crt-status-led-cover.3mf	7b65765f406fe2c82dea1ffdfe9a7446f0503e842e237d022a97faef9a725cb0	
+appl-crt-led-cover.stl	stl/status-led/apple-crt-status-led-cover.stl	6a8f8f6ef72358dc13b109f82e4d78fb5cf33d10d625ab032f54bcd6fba7da76	
+battery button.3mf	stl/battery-plunger/anker-battery-button-plunger.3mf	587cf310b916eccaa122495bf87a8a1f777d6e7ce32eb3276d93bb38ececfdb4	Final newer geometry; older STL intentionally omitted.
+bezel-scad9.stl	stl/bezel/lcd-curved-bezel-final.stl	fc628033bb0d5ac959937ee93020e1bafd686c90e122cdaca4f8bd183931fb23	
+crt stand.3mf	stl/monitor-stand/folding-monitor-stand.3mf	a279d15809600c7e8f34daf4ff1dcba1c3532a2383ef7022a9af16548a8b9c8c	
+crt stand.stl	stl/monitor-stand/folding-monitor-stand.stl	a2ef4522465598d16281e7526710eb5602ead1c065b0978882fe7d978dd3eec7	
+feetz.stl	stl/screen-feet/screen-retaining-feet-four-piece.stl	7fa5e6c6728067650b6e4a43e83df7ad46223b50d646841f539408ca4ec778c1	Contains four printable feet; experimental 3MF intentionally omitted.
+mac power switch.3mf	stl/power-switch/narrow-original-power-switch.3mf	51947033c9b65271995deaf496fb36e200e15942f49cb4a7319e887e6d4ba33c	
+mac power switch.stl	stl/power-switch/narrow-original-power-switch.stl	2e2959716a2a5fd59c91d62192528d414335b79ac75445f928893057fd4b127c	
+monitor rack3.3mf	stl/shelf/internal-three-level-rack.3mf	9aa67a96ccbca49c5cda2f20ad30a6ce5a31d13e091165ee6cd7099585964690	
+monitor rack3.stl	stl/shelf/internal-three-level-rack.stl	daa2f269212341e3953eaa23cfb4c47736a269a2ed622056eca8c237d40c0fb3	
+rpi shelf spacer.stl	stl/shelf/rpi-shelf-spacer.stl	682f1cb6130d20b01fb3435e77f037acfce6d7e6317451c25948c7a80082bcea	
+rpi-spacer.3mf	stl/shelf/rpi-shelf-spacer.3mf	b8ba2638542b9bbe52470542b12485e67ee8e2a0e5bd22ba478d3971bc6f8683	
+rpi-elevator.3mf	stl/shelf/rpi-elevator.3mf	ead8e728fda5fec243c0b97ae9822a124aede14476a82e5b161ea78435451bfb	
+rpi-elevator.stl	stl/shelf/rpi-elevator.stl	a0765a2574715f4660621091498d22ebde026f035f3abb808af3d6c005b84863	
+sound board case.3mf	stl/boot-chime-switch/boot-chime-board-speaker-case.3mf	583a1df8c7e6b6114a7f46b1a8cf4e625d54d8bc7ccb47b50c65fe33b118bbe0	
+sound board case.stl	stl/boot-chime-switch/boot-chime-board-speaker-case.stl	db5b9f93478ee0a3b6290c51132addb09138a1d0f2f8b8dddcc94037dd7ded09	
+sound board dial.3mf	stl/boot-chime-switch/boot-chime-selector-dial-reference-mockup.3mf	a03cb3bc186cf255eda01544f9e9687ec6c9752256e05452e9a453affb158ee3	Reference/mock-up geometry; printable part is the STL.
+sound board dial.stl	stl/boot-chime-switch/boot-chime-selector-dial.stl	c56e4c964bcc21f3ee5cf858992f6966dbae2f7e55cbd1f4602885ef08464fe4	Preferred printable selector-dial file.
+usb thread.3mf	stl/usb-panel-mount/usb-panel-mount.3mf	9a907aae44072adf01bc6be5db5e2778feddaa460ebeca1a064d002ca0969e9a	
+usb thread.stl	stl/usb-panel-mount/usb-panel-mount.stl	2c909c7d813ffb424f4bcd59b53b266e25684faec185454fdc1722bad4935bc1	
+bezel.scad	stl/bezel/lcd-curved-bezel-generator.scad	c2fa52127d57d69ed4c0f5f6418ca4f5731dfa5699be9bd6e5d9daa7fa709bcf	Renamed and annotated; geometry/math unchanged.
+bezel-braces.3mf	stl/bezel/lcd-bezel-braces-three-piece.3mf	8c155f3f73a7e0c7ba05d4bc398f4c79ec0f56d1fd84fecf242d2c9ae31405da	Contains three braces; export through Microsoft 3D Builder before slicing.
