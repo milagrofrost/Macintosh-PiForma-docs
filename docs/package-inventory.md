@@ -75,13 +75,15 @@ Both compositors are installed and were observed running with parent PID 1 and t
 
 Confirmed core repository-backed runtime roots include:
 
-`pipewire-audio`, `pipewire-bin`, `pipewire-pulse`, `wireplumber`, `pulseaudio-utils`, `python3`, `python3-dbus-next`, `python3-gpiozero`, `python3-lgpio`, `python3-libgpiod`, `python3-rpi-lgpio`, `wmctrl`, `xdotool`, `x11-utils`, `jq`, `libglib2.0-bin`, `lxterminal`, `zsh`, and `picom`.
+`pipewire-audio`, `pipewire-bin`, `pipewire-pulse`, `wireplumber`, `pulseaudio-utils`, `python3`, `python3-gpiozero`, `python3-lgpio`, `wmctrl`, `xdotool`, `x11-utils`, `jq`, `libglib2.0-bin`, `lxterminal`, `zsh`, and `picom`.
 
 The five local PiForma `.deb` packages (`about-this-pi-forma`, `at-ease`, `clippy`, `control-strip-simulator`, and `pi-forma-panel`) are core runtime applications but are deliberately excluded from repository-backed APT install commands.
 
 `pulseaudio-utils` is core because it supplies `pactl`, used by the volume knob and USB audio loop scripts. `alsa-utils` is preserved as audio foundation/diagnostic support; no current script directly requires it as core runtime.
 
-`libglib2.0-bin` is included because it supplies `gio`. No active launcher or service inspected in this audit directly invokes `gio`, and `dex` is not installed; AtEase may still use desktop-launching behavior internally, so `gio` is preserved as runtime support rather than treated as disposable.
+`libglib2.0-bin` is included because it supplies `gio`. No active launcher or service inspected in this audit directly invokes `gio`, and `dex` is not installed; AtEase may still use desktop-launching behavior internally, so `gio` is preserved as runtime support rather than treated as disposable. The AtEase and Control Strip repositories recommend `dex` as an optional fallback, so it should be tested during the fresh-media rebuild before deciding whether to add it to the runtime roots.
+
+`python3-dbus-next`, `python3-libgpiod`, and `python3-rpi-lgpio` remain in the forensic installed-package inventory, but no direct active consumer was established during this audit. They are therefore not treated as minimal core installation roots.
 
 See `packages/apt-piforma-runtime.txt`.
 
@@ -95,7 +97,7 @@ Not all optional features are APT-owned. SheepShaver is an AppImage, RetroPie li
 
 Development packages are intentionally preserved. Confirmed or likely groups include:
 
-- Tauri/Rust/Node: `nodejs`, `npm`, Rust/Cargo from user-local tooling, WebKitGTK, GTK, Ayatana appindicator, GLib/GIO, and related libraries for PiForma Panel, AtEase, Control Strip, and About This PiForma.
+- Tauri/Rust/Node: `nodejs`, `npm`, Rust/Cargo from user-local tooling, WebKitGTK, GTK, Ayatana appindicator, GLib/GIO, OpenSSL, XDo, and related libraries for PiForma Panel, AtEase, Control Strip, and About This PiForma.
 - Debian packaging: `devscripts`, `debhelper`, `dh-autoreconf`, `dpkg-dev`, `build-essential`.
 - C/C++ and media: GCC/G++, CMake, FFmpeg development libraries, PipeWire/ALSA/PulseAudio development libraries, USB/udev/DRM/GBM/X11 headers.
 - Qt/media experiments: Qt 6 development packages and Qt Creator.
@@ -125,6 +127,8 @@ Five locally built Debian packages are installed and not available from configur
 
 Source paths, current checkout commits, dirty state, found `.deb` paths, found `.deb` metadata, SHA-256 hashes, file-comparison notes, and build-command confidence are recorded in `packages/local-deb-packages.tsv`. Current checkout commit does not prove the found `.deb` was built from that commit; `verified_build_source_commit` remains blank unless a build record proves it.
 
+The discovered About This PiForma `.deb` did not fully match the live installed files. One compared file differed and another expected file was missing. Treat that package as an unverified recovery artifact until it is rebuilt or independently validated.
+
 ## Non-APT software
 
 Non-APT inventory includes Flatpak apps (`org.kiwix.desktop`, `org.kde.marble`, `org.qgis.qgis`), SheepShaver AppImage, Tauri AppImage helpers, Pi-Apps, RetroPie, `/opt/retropie`, local emulation files, user-local Codex/Claude binaries, the rustup Rust toolchain, and Python virtual environments. `packages/python-environments.tsv` separates Debian-managed Python distributions from virtualenvs and is not a pip restore manifest.
@@ -146,7 +150,7 @@ An APT-only package list cannot recreate the complete PiForma software stack.
 - PiForma development workstation: current-feature plus `apt-development.txt`, Rust toolchain, Node/npm build environment, and project source repositories.
 - Experimental full clone: development workstation plus `apt-experiments.txt`, `apt-compatibility.txt`, foreign architecture configuration, and forensic historical package-state references. Historical exact kernel packages are documented but not automatically installed without an explicit historical-clone decision.
 
-Curated root counts are: system base 36, PiForma runtime 18, optional features 31, development 78, experiments 25, compatibility 9, unknown 0. `apt-kernel-history.txt` records 20 historical kernel status entries.
+Curated root counts are: system base 36, PiForma runtime 15, optional features 31, development 85, experiments 25, compatibility 9, unknown 0. `apt-kernel-history.txt` records 20 historical kernel status entries.
 
 ## Known limitations
 
