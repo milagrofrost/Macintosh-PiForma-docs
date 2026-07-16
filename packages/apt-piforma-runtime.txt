@@ -10,13 +10,10 @@ pipewire-pulse
 pulseaudio-utils
 wireplumber
 
-# GPIO and Python script runtime
+# GPIO and Python script runtime directly evidenced by the deployed scripts
 python3
-python3-dbus-next
 python3-gpiozero
 python3-lgpio
-python3-libgpiod
-python3-rpi-lgpio
 
 # Script and launcher commands directly referenced by PiForma configuration
 jq
