@@ -59,9 +59,9 @@ Held packages: libsdl2-dev
 Counts below ignore comments and blank lines. They are top-level packages to request from APT, not dependency closures.
 
 - system base roots: 36
-- piforma runtime roots: 18
+- piforma runtime roots: 15
 - optional feature roots: 31
-- development roots: 78
+- development roots: 85
 - experiment roots: 25
 - compatibility roots: 9
 - unknown roots: 0
