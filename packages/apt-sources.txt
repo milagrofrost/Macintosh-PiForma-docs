@@ -96,8 +96,15 @@ Pinned packages:
 
 ## Installed Packages With No Repository Candidate Or Only Local `now` Candidate
 
-These include locally built PiForma packages and packages whose installed version is known only from dpkg status.
+These are installed packages for which `python3-apt` found no configured repository version. They must be restored from local `.deb` files or rebuilt from source; normal repository-backed APT commands cannot restore them.
 
 ```text
-
+package	installed_version	architecture	policy_summary	rebuild_or_recovery_source
+about-this-pi-forma	0.1.0	arm64	about-this-pi-forma:; Installed: 0.1.0; Candidate: 0.1.0; *** 0.1.0 100; 100 /var/lib/dpkg/status	See packages/local-deb-packages.tsv for source checkout, found deb path, sha256, and rebuild command confidence.
+at-ease	0.1.0	arm64	at-ease:; Installed: 0.1.0; Candidate: 0.1.0; *** 0.1.0 100; 100 /var/lib/dpkg/status	See packages/local-deb-packages.tsv for source checkout, found deb path, sha256, and rebuild command confidence.
+clippy	0.4.3	arm64	clippy:; Installed: 0.4.3; Candidate: 0.4.3; *** 0.4.3 100; 100 /var/lib/dpkg/status	See packages/local-deb-packages.tsv for source checkout, found deb path, sha256, and rebuild command confidence.
+control-strip-simulator	0.1.0	arm64	control-strip-simulator:; Installed: 0.1.0; Candidate: 0.1.0; *** 0.1.0 100; 100 /var/lib/dpkg/status	See packages/local-deb-packages.tsv for source checkout, found deb path, sha256, and rebuild command confidence.
+pi-forma-panel	0.1.0	arm64	pi-forma-panel:; Installed: 0.1.0; Candidate: 0.1.0; *** 0.1.0 100; 100 /var/lib/dpkg/status	See packages/local-deb-packages.tsv for source checkout, found deb path, sha256, and rebuild command confidence.
 ```
+
+Note: `libsdl2-dev` is held at installed version `2.32.10+1rpi` from local dpkg status, but Debian provides repository version `2.32.4+dfsg-1`; it is therefore not local-only, though the exact held version remains a reproducibility gap.

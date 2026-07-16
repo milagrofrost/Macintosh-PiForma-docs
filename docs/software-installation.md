@@ -36,20 +36,34 @@ Do not add repositories or enable foreign architectures blindly on a live system
 
 ## Stage 3: System and desktop packages
 
-Use `packages/apt-system-base.txt` as the base package reference. It includes metapackages and important roots rather than every dependency.
+Use `packages/apt-system-base.txt` as the base package reference. It contains curated top-level roots, not every dependency and not historical kernel versions.
 
-Example command shape, not run during this audit:
+Future rebuild simulation command, not run as an install during this audit:
 
 ```bash
-sudo apt install $(grep -v '^#' packages/apt-system-base.txt)
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-system-base.txt \
+  | xargs -r apt-get -s install
+```
+
+Future rebuild install command, to run only on rebuild media after simulation review:
+
+```bash
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-system-base.txt \
+  | xargs -r sudo apt install -y
 ```
 
 ## Stage 4: PiForma runtime packages
 
-Use `packages/apt-piforma-runtime.txt` for directly evidenced runtime packages.
+Use `packages/apt-piforma-runtime.txt` for directly evidenced repository-backed runtime roots. The local PiForma `.deb` package names are intentionally not in this APT profile.
 
 ```bash
-sudo apt install $(grep -v '^#' packages/apt-piforma-runtime.txt)
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-piforma-runtime.txt \
+  | xargs -r apt-get -s install
+```
+
+```bash
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-piforma-runtime.txt \
+  | xargs -r sudo apt install -y
 ```
 
 Then restore scripts, configs, local apps, and services before expecting the desktop to behave like PiForma.
@@ -66,42 +80,65 @@ Rebuild or reinstall:
 - `control-strip-simulator`
 - `pi-forma-panel`
 
-Use `packages/local-deb-packages.tsv` for source paths, commits, found `.deb` files, hashes, and dirty state. Do not assume the `.deb` files are safely archived just because they exist on the live machine.
+Use `packages/local-deb-packages.tsv` for source paths, current checkout commits, found `.deb` files, found `.deb` metadata, hashes, build-command confidence, and file-comparison notes. Do not assume a found `.deb` was built from the current checkout unless `verified_build_source_commit` is populated. Do not assume the `.deb` files are safely archived just because they exist on the live machine.
 
 ## Stage 6: Optional applications and features
 
-Install optional APT features from `packages/apt-optional-features.txt` only for the current-feature or larger profiles.
+Install optional APT feature roots from `packages/apt-optional-features.txt` only for the current-feature or larger profiles.
 
 ```bash
-sudo apt install $(grep -v '^#' packages/apt-optional-features.txt)
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-optional-features.txt \
+  | xargs -r apt-get -s install
+```
+
+```bash
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-optional-features.txt \
+  | xargs -r sudo apt install -y
 ```
 
 Restore Flatpak apps and AppImages from `packages/non-apt-software.tsv`.
 
 ## Stage 7: Development environment
 
-Install development packages from `packages/apt-development.txt` for the development workstation profile.
+Install development roots from `packages/apt-development.txt` for the development workstation profile.
 
 ```bash
-sudo apt install $(grep -v '^#' packages/apt-development.txt)
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-development.txt \
+  | xargs -r apt-get -s install
 ```
 
-This intentionally includes broad C/C++, Rust/Tauri-adjacent, Qt, media, emulator, and Debian packaging support.
+```bash
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-development.txt \
+  | xargs -r sudo apt install -y
+```
+
+This intentionally includes broad C/C++, Tauri-adjacent, Qt, media, emulator, and Debian packaging support. Rust itself is managed through `rustup` and documented in `packages/development-toolchains.md`.
 
 ## Stage 8: Experimental and compatibility packages
 
-Install experiments and compatibility packages only for the experimental full clone.
+Install experiments and compatibility roots only for the experimental full clone.
 
 ```bash
-sudo apt install $(grep -v '^#' packages/apt-experiments.txt)
-sudo apt install $(grep -v '^#' packages/apt-compatibility.txt)
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-experiments.txt \
+  | xargs -r apt-get -s install
+
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-compatibility.txt \
+  | xargs -r apt-get -s install
 ```
 
-This is the closest profile to the current machine. It is intentionally not a minimal install.
+```bash
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-experiments.txt \
+  | xargs -r sudo apt install -y
+
+grep -Ev '^[[:space:]]*(#|$)' packages/apt-compatibility.txt \
+  | xargs -r sudo apt install -y
+```
+
+This is the closest APT root profile to the current machine, but it still does not automatically install exact historical kernel packages or guarantee exact old package versions.
 
 ## Stage 9: Non-APT software
 
-Restore Flatpak apps, SheepShaver AppImage, RetroPie/EmulationStation, Pi-Apps if intentionally retained, user-local binaries, Python package state, and any emulator trees not owned by APT.
+Restore Flatpak apps, SheepShaver AppImage, RetroPie/EmulationStation, Pi-Apps if intentionally retained, user-local binaries, Rust toolchain state, Python virtual environments, and any emulator trees not owned by APT. `packages/python-environments.tsv` is an ownership inventory, not a blanket pip requirements file.
 
 ## Stage 10: Restore scripts, configurations, and services
 
@@ -147,7 +184,7 @@ Rebuild gaps needing owner archival decisions:
 - Flatpak applications and Kiwix content: documented but content not fully archived
 - sudoers rule for Apple-logo shutdown: verify and archive
 - `env-display.desktop`: documented in systemd notes, verify archive
-- Python packages not supplied by APT: unresolved until separated from Debian-managed Python packages
+- Python packages not supplied by APT: dedicated inventory created in `packages/python-environments.tsv`; currently observed system Python distributions are Debian-managed, with three virtual environments requiring separate review
 
 ## Stage 12: Verification
 
@@ -155,4 +192,4 @@ After a rebuild, validate boot, display mode, LightDM autologin, Openbox, PCManF
 
 ## Remaining reproducibility gaps
 
-The system is not ready to claim full reproducibility. A tested fresh-install procedure requires separate media, an exact base image, confirmed asset archival, local `.deb` archival or rebuild automation, non-APT restore steps, and full feature validation.
+The system is not ready to claim full reproducibility. Curated profiles have been validated as repository-backed roots, but they still require a fresh-media test. A tested fresh-install procedure requires separate media, an exact base image, confirmed asset archival, local `.deb` archival or rebuild automation, non-APT restore steps, and full feature validation.

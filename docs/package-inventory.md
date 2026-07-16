@@ -18,7 +18,7 @@ Experimental, compatibility, and development software is intentionally preserved
 - Foreign architecture: `armhf`.
 - Active session: LightDM, Xorg, `rpd-x`, LXSession/LXDE, Openbox, PCManFM.
 - Active PiForma processes: AtEase, PiForma Panel, Control Strip Simulator, Clippy, PipeWire, WirePlumber, Apple gesture button, volume knob, USB audio loop.
-- Initial counts: 2911 dpkg package rows, 401 manual marks, 2508 automatic marks, held package `libsdl2-dev`.
+- Initial counts: 2911 dpkg status rows, 2908 fully installed `ii` rows, 1 held-installed `hi` row (`libsdl2-dev:arm64`), 2 config/status residue `rc` rows, 401 manual marks, 2508 automatic marks, held package `libsdl2-dev`.
 
 The probable original image family is Raspberry Pi OS with desktop for Debian 13/Trixie. The exact image date or filename is not proven and must be named only after a rebuild test.
 
@@ -26,11 +26,16 @@ The probable original image family is Raspberry Pi OS with desktop for Debian 13
 
 Configured APT sources are Debian Trixie, Trixie updates, Trixie security, and Raspberry Pi Foundation Trixie. Components include `main`, `contrib`, `non-free`, and `non-free-firmware` for Debian, and `main` for Raspberry Pi.
 
-See `packages/apt-sources.txt` for the sanitized source snapshot, architecture settings, policy output, and packages with only local `now` candidates.
+See `packages/apt-sources.txt` for the sanitized source snapshot, architecture settings, policy output, and packages with no configured repository version. The scan found only the five local PiForma Debian packages as local-only; `libsdl2-dev` has a held local/status version but a lower Debian repository version exists.
 
 ## Installed package summary
 
-Primary classification totals:
+There are two layers under `packages/`:
+
+- Forensic state snapshots record what exists now, including dependency closure, local-only packages, experiments, foreign-architecture packages, historical kernels, and dpkg residue rows.
+- Curated rebuild roots are deliberately selected top-level APT package names for future rebuild experiments. They are not generated from categories and intentionally omit dependency closure, local `.deb` packages, residue rows, and exact historical kernels.
+
+Primary forensic classification totals:
 
 - `base-os`: 41
 - `compatibility`: 14
@@ -56,7 +61,7 @@ For automatic packages, `packages/apt-package-roles.tsv` records dependency stat
 
 ## Base operating system and Raspberry Pi support
 
-The base profile preserves Debian/Raspberry Pi OS core packages, firmware, kernel metapackages, Raspberry Pi utilities, networking, Bluetooth, LightDM/X11 desktop foundations, PipeWire audio foundation, and Raspberry Pi desktop metapackages.
+The curated base profile selects Debian/Raspberry Pi OS roots, firmware and hardware support, networking, Bluetooth, supported Pi 4 arm64 kernel metapackages, and LightDM/X11 desktop foundations. Exact historical kernels and `rpd-wayland-*` are excluded from this X11 base profile and documented separately.
 
 See `packages/apt-system-base.txt`.
 
@@ -64,13 +69,15 @@ See `packages/apt-system-base.txt`.
 
 The active desktop runtime is X11. Live process evidence shows LightDM, Xorg, `lxsession -s rpd-x -e LXDE`, Openbox, PCManFM, `picom`, and `xcompmgr`.
 
-Both compositors are installed and running. They are therefore documented as active desktop runtime rather than cleanup candidates.
+Both compositors are installed and were observed running with parent PID 1 and the same start time. `picom` has explicit user LXDE-pi autostart evidence in `/home/frost/.config/lxsession/LXDE-pi/autostart`; `xcompmgr -aR` is referenced by `/etc/xdg/autostart/xcompmgr.desktop`. The core curated runtime includes `picom` only. `xcompmgr` is preserved in the experimental profile as a current-state compatibility/anomaly until a display test proves whether it is intentionally required.
 
 ## Core PiForma runtime
 
-Confirmed runtime packages include:
+Confirmed core repository-backed runtime roots include:
 
-`about-this-pi-forma`, `at-ease`, `clippy`, `control-strip-simulator`, `pi-forma-panel`, `lightdm`, `openbox`, `pcmanfm`, `lxsession`, `picom`, `xcompmgr`, `pipewire`, `pipewire-audio`, `pipewire-pulse`, `wireplumber`, `pulseaudio-utils`, `python3`, `python3-gpiozero`, `python3-rpi-lgpio`, `wmctrl`, `xdotool`, `x11-utils`, `jq`, `libglib2.0-bin`, `desktop-file-utils`, `lxterminal`, and `zsh`.
+`pipewire-audio`, `pipewire-bin`, `pipewire-pulse`, `wireplumber`, `pulseaudio-utils`, `python3`, `python3-dbus-next`, `python3-gpiozero`, `python3-lgpio`, `python3-libgpiod`, `python3-rpi-lgpio`, `wmctrl`, `xdotool`, `x11-utils`, `jq`, `libglib2.0-bin`, `lxterminal`, `zsh`, and `picom`.
+
+The five local PiForma `.deb` packages (`about-this-pi-forma`, `at-ease`, `clippy`, `control-strip-simulator`, and `pi-forma-panel`) are core runtime applications but are deliberately excluded from repository-backed APT install commands.
 
 `pulseaudio-utils` is core because it supplies `pactl`, used by the volume knob and USB audio loop scripts. `alsa-utils` is preserved as audio foundation/diagnostic support; no current script directly requires it as core runtime.
 
@@ -116,11 +123,11 @@ Five locally built Debian packages are installed and not available from configur
 - `control-strip-simulator`
 - `pi-forma-panel`
 
-Source paths, commits, dirty state, found `.deb` paths, and SHA-256 hashes are recorded in `packages/local-deb-packages.tsv`.
+Source paths, current checkout commits, dirty state, found `.deb` paths, found `.deb` metadata, SHA-256 hashes, file-comparison notes, and build-command confidence are recorded in `packages/local-deb-packages.tsv`. Current checkout commit does not prove the found `.deb` was built from that commit; `verified_build_source_commit` remains blank unless a build record proves it.
 
 ## Non-APT software
 
-Non-APT inventory includes Flatpak apps (`org.kiwix.desktop`, `org.kde.marble`, `org.qgis.qgis`), SheepShaver AppImage, Tauri AppImage helpers, Pi-Apps, RetroPie, `/opt/retropie`, local emulation files, and user-local Codex/Claude binaries.
+Non-APT inventory includes Flatpak apps (`org.kiwix.desktop`, `org.kde.marble`, `org.qgis.qgis`), SheepShaver AppImage, Tauri AppImage helpers, Pi-Apps, RetroPie, `/opt/retropie`, local emulation files, user-local Codex/Claude binaries, the rustup Rust toolchain, and Python virtual environments. `packages/python-environments.tsv` separates Debian-managed Python distributions from virtualenvs and is not a pip restore manifest.
 
 An APT-only package list cannot recreate the complete PiForma software stack.
 
@@ -130,14 +137,16 @@ An APT-only package list cannot recreate the complete PiForma software stack.
 
 ## Unknown or unresolved package purposes
 
-`packages/apt-unknown.txt` contains only dpkg config/status residue rows at the time of this audit: `rpi-connect-lite` and `tint2`. These are not active installed packages in the same sense as `ii` packages, but they remain in the dpkg-query snapshot for transparency.
+`packages/apt-unknown.txt` currently contains no curated install roots. The dpkg config/status residue rows `rpi-connect-lite` and `tint2` are recorded in `packages/dpkg-residue.txt` and remain visible in the forensic snapshots for transparency.
 
 ## Rebuild profiles
 
-- Core PiForma: Raspberry Pi OS/X11 desktop foundation, LightDM, Openbox, PCManFM, PipeWire/WirePlumber, GPIO dependencies, PiForma Panel, AtEase, Control Strip, Clippy, scripts, configs, and services.
-- Current-feature PiForma: core plus Chromium kiosk launchers, Weather Channel, Flying Toasters, QMMP, Flatpak/Kiwix, SheepShaver, RetroPie/EmulationStation, and retained remote access.
-- PiForma development workstation: current-feature plus Rust/Cargo, Node/npm, Tauri dependencies, Debian packaging tools, C/C++/CMake/Qt/media/emulator/hardware headers.
-- Experimental full clone: closest reproduction of the current machine, including experiments, alternate desktops, Wayland/Xephyr, DOSBox-X, Tux Paint, Qtractor, Wine/armhf, compatibility layers, and historical dependencies.
+- Core PiForma: `apt-system-base.txt`, `apt-piforma-runtime.txt`, local PiForma `.deb` packages, scripts, configs, systemd units, and required visual assets.
+- Current-feature PiForma: core plus `apt-optional-features.txt`, Flatpak applications, SheepShaver, RetroPie/EmulationStation, Weather Channel assets, Flying Toasters build, and retained remote access.
+- PiForma development workstation: current-feature plus `apt-development.txt`, Rust toolchain, Node/npm build environment, and project source repositories.
+- Experimental full clone: development workstation plus `apt-experiments.txt`, `apt-compatibility.txt`, foreign architecture configuration, and forensic historical package-state references. Historical exact kernel packages are documented but not automatically installed without an explicit historical-clone decision.
+
+Curated root counts are: system base 36, PiForma runtime 18, optional features 31, development 78, experiments 25, compatibility 9, unknown 0. `apt-kernel-history.txt` records 20 historical kernel status entries.
 
 ## Known limitations
 
@@ -150,5 +159,8 @@ Exact package versions may not remain available in repositories forever. Local `
 - `packages/apt-package-roles.tsv`
 - `packages/local-deb-packages.tsv`
 - `packages/non-apt-software.tsv`
+- `packages/python-environments.tsv`
+- `packages/development-toolchains.md`
+- `packages/validate-package-profiles.py`
 - `docs/software-installation.md`
 - `docs/package-cleanup-proposal.md`

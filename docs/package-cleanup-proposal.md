@@ -25,9 +25,11 @@ This file remains useful as the initial audit record. The canonical long-term pa
 - Foreign architecture: `armhf`
 - Active desktop session: LightDM autologin, `rpd-x`, X11
 - Active desktop processes: `lxsession -s rpd-x -e LXDE`, Openbox, `pcmanfm --desktop`, PiForma Panel, AtEase, ControlStrip Simulator, Clippy, PipeWire, WirePlumber
-- Installed dpkg packages before cleanup: 2911
-- Manually marked APT packages before cleanup: 401
-- Automatically marked APT packages before cleanup: 2508
+- dpkg status rows before cleanup investigation: 2911
+- Installed/held-installed package rows before cleanup investigation: 2909 (`ii`: 2908, `hi`: 1)
+- Config/status residue rows before cleanup investigation: 2 (`rc`: 2, `rpi-connect-lite` and `tint2`)
+- Manually marked APT packages before cleanup investigation: 401
+- Automatically marked APT packages before cleanup investigation: 2508
 - Held packages: `libsdl2-dev`
 - Failed systemd units before cleanup: none
 - Failed user units before cleanup: none
