@@ -4,6 +4,8 @@
 
 This directory stores verified recovery snapshots for PiForma configuration files that are needed to rebuild the live `macintosh-piforma` desktop, launchers, panel layout, boot behavior, input defaults, and emulator preferences.
 
+Configuration restore order and package prerequisites are documented in [../docs/software-installation.md](../docs/software-installation.md). The audited package state lives in [../docs/package-inventory.md](../docs/package-inventory.md) and [`../packages/`](../packages/).
+
 The initial audit found that `config/` contained only this README. The files now archived here were copied from the live Pi during the July 2026 audit rather than recreated from documentation.
 
 ## Source-of-truth Policy

@@ -6,6 +6,8 @@ This directory archives the verified systemd unit files from the live `macintosh
 
 Audit date: 2026-07-15.
 
+Service package dependencies and rebuild profiles are documented in [../docs/package-inventory.md](../docs/package-inventory.md) and [../docs/software-installation.md](../docs/software-installation.md).
+
 ## System Units And User Units
 
 System units are installed under `/etc/systemd/system/` and managed with `systemctl`. PiForma currently uses system units for GPIO hardware helpers, AtEase, and the Flying Toasters local web server.

@@ -1,0 +1,103 @@
+# APT Sources Snapshot
+
+Snapshot date: 2026-07-15 (America/New_York)
+
+Native architecture: arm64
+Foreign architectures: armhf
+
+## Configured Sources
+
+### /etc/apt/sources.list
+
+```text
+
+```
+
+### /etc/apt/sources.list.d/debian.sources
+
+```text
+Types: deb
+URIs: http://deb.debian.org/debian/
+Suites: trixie trixie-updates
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.pgp
+
+Types: deb
+URIs: http://deb.debian.org/debian-security/
+Suites: trixie-security
+Components: main contrib non-free non-free-firmware
+Signed-By: /usr/share/keyrings/debian-archive-keyring.pgp
+```
+
+### /etc/apt/sources.list.d/raspi.sources
+
+```text
+Types: deb
+URIs: http://archive.raspberrypi.com/debian/
+Suites: trixie
+Components: main
+Signed-By: /usr/share/keyrings/raspberrypi-archive-keyring.pgp
+```
+
+## Preferences
+
+No `/etc/apt/preferences` or `/etc/apt/preferences.d/*` files were found.
+
+## Repository Policy
+
+```text
+Package files:
+ 100 /var/lib/dpkg/status
+     release a=now
+ 500 http://archive.raspberrypi.com/debian trixie/main armhf Packages
+     release o=Raspberry Pi Foundation,a=stable,n=trixie,l=Raspberry Pi Foundation,c=main,b=armhf
+     origin archive.raspberrypi.com
+ 500 http://archive.raspberrypi.com/debian trixie/main arm64 Packages
+     release o=Raspberry Pi Foundation,a=stable,n=trixie,l=Raspberry Pi Foundation,c=main,b=arm64
+     origin archive.raspberrypi.com
+ 500 http://deb.debian.org/debian-security trixie-security/main armhf Packages
+     release v=13,o=Debian,a=stable-security,n=trixie-security,l=Debian-Security,c=main,b=armhf
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian-security trixie-security/main arm64 Packages
+     release v=13,o=Debian,a=stable-security,n=trixie-security,l=Debian-Security,c=main,b=arm64
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie-updates/main armhf Packages
+     release v=13-updates,o=Debian,a=stable-updates,n=trixie-updates,l=Debian,c=main,b=armhf
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie-updates/main arm64 Packages
+     release v=13-updates,o=Debian,a=stable-updates,n=trixie-updates,l=Debian,c=main,b=arm64
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie/non-free-firmware armhf Packages
+     release v=13.5,o=Debian,a=stable,n=trixie,l=Debian,c=non-free-firmware,b=armhf
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie/non-free-firmware arm64 Packages
+     release v=13.5,o=Debian,a=stable,n=trixie,l=Debian,c=non-free-firmware,b=arm64
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie/non-free armhf Packages
+     release v=13.5,o=Debian,a=stable,n=trixie,l=Debian,c=non-free,b=armhf
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie/non-free arm64 Packages
+     release v=13.5,o=Debian,a=stable,n=trixie,l=Debian,c=non-free,b=arm64
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie/contrib armhf Packages
+     release v=13.5,o=Debian,a=stable,n=trixie,l=Debian,c=contrib,b=armhf
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie/contrib arm64 Packages
+     release v=13.5,o=Debian,a=stable,n=trixie,l=Debian,c=contrib,b=arm64
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie/main armhf Packages
+     release v=13.5,o=Debian,a=stable,n=trixie,l=Debian,c=main,b=armhf
+     origin deb.debian.org
+ 500 http://deb.debian.org/debian trixie/main arm64 Packages
+     release v=13.5,o=Debian,a=stable,n=trixie,l=Debian,c=main,b=arm64
+     origin deb.debian.org
+Pinned packages:
+```
+
+## Installed Packages With No Repository Candidate Or Only Local `now` Candidate
+
+These include locally built PiForma packages and packages whose installed version is known only from dpkg status.
+
+```text
+
+```

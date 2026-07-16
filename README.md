@@ -49,7 +49,7 @@ Macintosh PiForma is one integrated build spread across this documentation repos
 | Clippy PiForma fork | https://github.com/milagrofrost/clippy-rpi | retro desktop assistant |
 | Flight of the Toasters | https://github.com/milagrofrost/Flight-of-the-Toasters | local Flying Toasters web app used by the launcher |
 
-For the current system layout, see [Software](docs/software.md). For how the custom apps work together, see [Software Ecosystem](docs/software-ecosystem.md). For the canonical repo map, see [Related Projects](docs/related-projects.md).
+For the current system layout, see [Software](docs/software.md). For package inventory and rebuild planning, see [PiForma Package Inventory](docs/package-inventory.md) and [Macintosh PiForma Software Installation](docs/software-installation.md). For how the custom apps work together, see [Software Ecosystem](docs/software-ecosystem.md). For the canonical repo map, see [Related Projects](docs/related-projects.md).
 
 ## Photo placeholders
 
@@ -133,6 +133,8 @@ flowchart TD
 
 - [Hardware](docs/hardware.md)
 - [Software](docs/software.md)
+- [Package Inventory](docs/package-inventory.md)
+- [Software Installation](docs/software-installation.md)
 - [Software Ecosystem](docs/software-ecosystem.md)
 - [Related Projects](docs/related-projects.md)
 - [Wiring](docs/wiring.md)

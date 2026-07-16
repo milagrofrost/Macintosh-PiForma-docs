@@ -4,6 +4,8 @@
 
 This directory stores recovery snapshots of scripts used by the Macintosh PiForma software stack. These files are meant to make the live system recoverable and reviewable in Git; they are not a dumping ground for reconstructed snippets from old notes.
 
+Script package dependencies are documented in [../docs/package-inventory.md](../docs/package-inventory.md) and [../docs/software-installation.md](../docs/software-installation.md).
+
 The scripts installed on `macintosh-piforma` are the operational source of truth until a deployed copy has been verified and archived here. Repository copies should be updated from the live system after a working change is verified. Do not replace a working live script with a version reconstructed from documentation.
 
 Once a repository copy has been verified against the deployed file, use the repository as the maintained source for future revisions: compare the live and repository copies, import the live version if the repository is stale, make changes on a Git branch, validate syntax, deploy the reviewed file, restart the associated service or launcher, verify behavior and logs, then commit the implementation and documentation together.

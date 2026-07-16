@@ -2,6 +2,8 @@
 
 This is the future-me-forgot-how-this-worked page.
 
+For package-state recovery, use [PiForma Package Inventory](package-inventory.md), [Macintosh PiForma Software Installation](software-installation.md), and the machine-readable files under [`../packages/`](../packages/). Package removal is currently deferred in favor of inventory and reproducibility.
+
 ## Opening the case
 
 Be careful with:

@@ -4,6 +4,8 @@ This document captures the Macintosh PiForma software stack as currently known.
 
 The software is not trying to be a perfect clone of classic Mac OS. It is Raspberry Pi OS dressed up like a Mac OS 9 / At Ease / early internet fever dream.
 
+For the audited APT/dpkg inventory, local `.deb` packages, non-APT software, and rebuild profiles, see [PiForma Package Inventory](package-inventory.md) and [Macintosh PiForma Software Installation](software-installation.md).
+
 ## System
 
 | Item | Value |
