@@ -2,9 +2,10 @@
 # This is not a dependency closure; APT should resolve the libraries pulled by
 # these deliberate roots. Rust is managed by rustup and documented separately.
 
-# General build, packaging, and source-control tools
+# General build, packaging, source-control, and source-fetching tools
 build-essential
 cmake
+curl
 debhelper
 devscripts
 dh-autoreconf
@@ -38,7 +39,9 @@ libdbus-1-dev
 libgtk-3-dev
 librsvg2-dev
 libsoup-3.0-dev
+libssl-dev
 libwebkit2gtk-4.1-dev
+libxdo-dev
 
 # Audio, GPIO, USB, and device integration development
 libasound2-dev
@@ -68,6 +71,12 @@ libxrandr-dev
 libxss-dev
 libxv-dev
 libxxf86vm-dev
+
+# Qt development and local UI experimentation
+qt6-base-dev
+qt6-multimedia-dev
+qt6-tools-dev
+qtcreator
 
 # FFmpeg, VLC, and media development roots
 libavcodec-dev
