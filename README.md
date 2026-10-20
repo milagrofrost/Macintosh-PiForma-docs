@@ -135,6 +135,7 @@ flowchart TD
 - [Software](docs/software.md)
 - [Package Inventory](docs/package-inventory.md)
 - [Software Installation](docs/software-installation.md)
+- [Wi-Fi Network Selector](docs/wifi-network-selector.md)
 - [Software Ecosystem](docs/software-ecosystem.md)
 - [Related Projects](docs/related-projects.md)
 - [Wiring](docs/wiring.md)
