@@ -140,3 +140,54 @@ Rofi's `Networks: Type to filter` prompt filters the list, and the `15/15` count
 - Resolve scanning authorization so a PiForma desktop icon can launch the picker without a terminal or elevation prompt.
 - Create an At Ease / PiForma Panel **Wireless Networks** launcher targeting `piforma-wifi`.
 - Optionally replace the Rofi presentation with a classic Mac OS-style GTK selector while retaining NetworkManager as the backend.
+
+## PiForma Panel SSID menu integration (prerequisites and configuration)
+
+The separate [PiForma Panel repository](https://github.com/milagrofrost/piforma-panel) already supports changing the action performed when the user clicks the connected SSID in the status popup. **No panel source change is required** to use a different external Wi-Fi picker.
+
+Verified in the panel source on October 20, 2026:
+
+1. `src/popupController.ts` builds the network row and calls `api.openNetworkSettings()` when it is clicked.
+2. `src/panelApi.ts` invokes the Tauri command `open_network_settings`.
+3. `src-tauri/src/main.rs` dispatches this to `system_status::open_network_settings()`.
+4. `src-tauri/src/system_status.rs` first reads the configuration's `network_manager.override_command` and launches it via the detached shell helper. Only when no override is configured does the code fall back to `nm-connection-editor`, `connman-gtk`, `wicd-client`, or a terminal running `nmtui`.
+5. `src-tauri/src/config.rs` resolves the user's configuration to `~/.local/share/piforma-panel/config.yaml`.
+
+### Required setup on the Pi
+
+- NetworkManager manages `wlan0` (check `nmcli device status`).
+- Rofi, Python GObject/NM bindings and `networkmanager_dmenu` are installed as described above.
+- `piforma-wifi` exists at `/usr/local/bin/piforma-wifi`, is executable, and is accessible from the panel process's `PATH`.
+- The PiForma Panel application is launched in the user's graphical session with a valid display environment so Rofi can display its window.
+- **A non-interactive scan authorization solution is necessary for a reliable click-to-open experience.** The previous `nmcli device wifi rescan` failed with `not authorized`; the `sudo nmcli ...` workaround can prompt for a password and should not be treated as a finished desktop integration.
+
+### Change the existing panel configuration
+
+Back up the user's config before editing:
+
+```bash
+cp ~/.local/share/piforma-panel/config.yaml ~/.local/share/piforma-panel/config.yaml.bak
+```
+
+Add this **top-level** YAML mapping or merge it into an existing `network_manager:` mapping (do not duplicate the key):
+
+```yaml
+network_manager:
+  override_command: /usr/local/bin/piforma-wifi
+```
+
+The absolute path avoids depending on the panel service's `PATH`. Preserve all other PiForma Panel configuration settings. Restart the panel application/service if needed, then click the SSID and verify that the Rofi selector opens.
+
+### End-to-end acceptance checks
+
+1. From an Openbox terminal, test `/usr/local/bin/piforma-wifi` and confirm the menu lists both saved and unsaved SSIDs after a scan.
+2. Test that the normal PiForma user can trigger a scan **without a password prompt or terminal**. Check `nmcli general permissions` and the user session/Polkit setup if not.
+3. Click the SSID in PiForma Panel. Confirm the menu closes and the Wi-Fi picker appears over the desktop.
+4. Select an unsaved network, enter its credentials, and verify the connection with `nmcli device status`. Do not perform this disruptive test during an important remote-only connection.
+5. Reopen the SSID popup and verify that it displays the new connected SSID.
+
+### Known limitation and implementation choice
+
+Setting `override_command` changes the **click action**, not the existing SSID display or network-status polling. The panel uses `nmcli` to find the active SSID independently. Keep Wi-Fi connection changes in the external launcher instead of duplicating NetworkManager logic in the panel.
+
+A Rofi menu is an interim UI. Later, a classic Mac-style native selector can replace `piforma-wifi` without changing the panel click handler, provided the override continues to point to the new command.
