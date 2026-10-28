@@ -2,6 +2,8 @@
 
 **A Raspberry Pi-powered Macintosh Performa fever dream built inside an Apple IIc Monitor.**
 
+![Macintosh PiForma on the desk](images/standardized/glamor-shot.jpg)
+
 Macintosh PiForma is a finished Raspberry Pi 4B build inside a retired Apple IIc Monitor shell. It is not a restoration. It is not pretending to be a museum piece. It is a working, portable, weirdly sincere Apple-flavored machine that lives somewhere between a Macintosh Performa, a Raspberry Pi desktop, a retro game station, and a piece of early-2000s Mac mod forum nostalgia.
 
 The original CRT was already too far gone to justify saving. The case, power switch, AC inlet, rear openings, and overall monitor shape were kept and reused. The inside was rebuilt around a modern LCD, a Raspberry Pi 4B, an Anker battery, a custom 5V JST power rail, a boot chime module, a capacitive Apple logo button, and a Bluetooth-converted Apple ADB keyboard.
